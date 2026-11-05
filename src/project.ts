@@ -91,6 +91,8 @@ export const paths = {
   codexRun: (dir: string, run: string) => join(dir, '.studio', 'codex', run),
   playtests: (dir: string) => join(dir, '.studio', 'playtest'),
   renders: (dir: string) => join(dir, '.studio', 'renders'),
+  /** The shelf's cover picture: the mid-game screenshot of the latest full playtest. */
+  cover: (dir: string) => join(dir, '.studio', 'cover.jpg'),
   artifact: (dir: string) => join(dir, 'dist', 'index.html'),
   exportDir: (dir: string) => join(dir, 'export'),
 }

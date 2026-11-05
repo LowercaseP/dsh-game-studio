@@ -41,6 +41,7 @@ Ask the agent for a game in plain words — "a 3D game: a red panda collects bam
 | 🕰️ **Version history** | Every build that changed the game is saved; `game_studio_restore_version` brings back code, rules and art together. |
 | 📦 **One-file export** | `game_studio_export` writes a self-contained HTML file with no network access — open it in any browser or put it on any static host. |
 | 📱 **Try it on your phone** | `game_studio_share` opens a temporary read-only link on your local network, with a QR code in the sidebar. |
+| 🗂️ **My games** | Open the sidebar's **+** and pick **Game Studio · My games**: every game in the workspace as a card with its latest playtest picture. Click one to play it — no agent, no tokens. |
 
 ## Games made with it
 

@@ -49,8 +49,18 @@ export const zh = {
   'row.apply': '已换上新素材',
   'row.revert': '已撤回素材',
   'row.export': '已导出',
-  'guide.title': '游戏工坊',
-  'guide.description': '做一个能玩的小游戏，再换上你自己的美术',
+  'guide.title': '游戏工坊 · 我的游戏',
+  'guide.description': '这个工作区里做过的游戏，点开就能玩',
+  'shelf.title': '我的游戏',
+  'shelf.count': '{count} 个游戏',
+  'shelf.refresh': '刷新',
+  'shelf.scanning': '正在找这个工作区里的游戏…',
+  'shelf.empty': '这个工作区里还没有游戏。在对话里说一句，比如「做一个小游戏：小猫在厨房偷鱼干，别撞上扫地机器人」。',
+  'shelf.partial': '工作区比较大，只找了前面一部分文件夹。',
+  'shelf.noSession': '先打开一个会话，才能看到它工作区里的游戏。',
+  'shelf.notBuilt': '还没构建',
+  'shelf.versions': '{count} 个版本',
+  'shelf.play': '打开《{title}》',
 }
 
 export const en: typeof zh = {
@@ -101,8 +111,18 @@ export const en: typeof zh = {
   'row.apply': 'New asset applied',
   'row.revert': 'Asset reverted',
   'row.export': 'Exported',
-  'guide.title': 'Game Studio',
-  'guide.description': 'Make a playable small game, then give it your own art',
+  'guide.title': 'Game Studio · My games',
+  'guide.description': 'Games made in this workspace, ready to play',
+  'shelf.title': 'My games',
+  'shelf.count': '{count} games',
+  'shelf.refresh': 'Refresh',
+  'shelf.scanning': 'Looking for games in this workspace…',
+  'shelf.empty': 'No games in this workspace yet. Ask in the chat, for example: "Make a small game: a kitten steals dried fish in a kitchen without bumping into the robot vacuum."',
+  'shelf.partial': 'This workspace is large; only the first folders were searched.',
+  'shelf.noSession': 'Open a session to see the games in its workspace.',
+  'shelf.notBuilt': 'Not built yet',
+  'shelf.versions': '{count} versions',
+  'shelf.play': 'Open "{title}"',
 }
 
 export type Key = keyof typeof zh

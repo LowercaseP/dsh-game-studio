@@ -235,6 +235,12 @@ test('playtest plays the 3D game to its end screen with this-run-only rules and 
     const png = await readFile(join(root, 'cube', '.studio', 'renders', `${slot}.png`))
     assert.equal(png.subarray(1, 4).toString(), 'PNG')
   }
+  // The "My games" shelf gets this run's picture as the cover (no midpoint in a 2-second round, so the title screen).
+  const cover = await readFile(join(root, 'cube', '.studio', 'cover.jpg'))
+  assert.equal(cover.readUInt16BE(0), 0xffd8, 'the cover is a JPEG')
+  const runTitle = result.summary.match(/\.studio\/playtest\/(run-[^/]+)\/title\.jpg/u)
+  assert.ok(runTitle, result.summary)
+  assert.deepEqual(cover, await readFile(join(root, 'cube', '.studio', 'playtest', runTitle[1], 'title.jpg')))
 
   // Reverse check: the override reached the game (without it, the round is still running) ...
   const plain = await call('game_studio_playtest', { path: 'cube', seconds: 2, portrait: false })
@@ -277,6 +283,7 @@ test('characters-only playtest returns one close-up per slot without playing: co
   assert.match(result.summary, /Slot files, which the sidebar shows as they are: background\. Nothing else is needed/u)
   assert.doesNotMatch(result.summary, /Phases:/u, 'nothing was played')
   assert.equal(tools.get('game_studio_playtest').output.render({}, result).filter(block => block.type === 'image').length, 4)
+  await assert.rejects(readFile(join(root, 'cube', '.studio', 'cover.jpg')), /ENOENT/u, 'close-ups alone are not a cover')
   const png = await readFile(join(root, 'cube', '.studio', 'renders', 'hero.png'))
   assert.equal(png.readUInt32BE(16), 384, 'close-ups for model work are drawn larger')
 

@@ -6,9 +6,12 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { en, NS, zh, type Key } from './locales.ts'
+import { scanShelf, type Listing, type ShelfGame } from './shelf.ts'
 
 const ID = '@zseven-w/dsh-game-studio'
 const KIND = 'game-studio'
+const SHELF_ID = '@zseven-w/dsh-game-studio/shelf'
+const SHELF_KIND = 'game-studio-shelf'
 const ADDRESS_PREFIX = 'dsh-resource://game-studio/session/'
 const TOOLS = ['game_studio_create', 'game_studio_build', 'game_studio_generate_asset', 'game_studio_apply_asset', 'game_studio_revert_asset', 'game_studio_export']
 
@@ -355,6 +358,98 @@ function JobLine({ job, t }: { job: JobRecord; t: T }): ReactNode {
   return <div style={{ ...s.small, color: tok.danger, marginBottom: 6 }}>{t(key, { provider, failed: String(job.failed), detail })}</div>
 }
 
+// ---------------------------------------------------------------- shelf ("My games")
+
+type ListDir = (sessionId: string, path: string, signal: AbortSignal) => Promise<Listing>
+interface ShelfInjected { shelfSession: string; readBytes: ReadBytes; listDir: ListDir }
+
+const shelfStyle: Record<string, CSSProperties> = {
+  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10, padding: 10, overflow: 'auto', minHeight: 0, alignContent: 'start' },
+  card: { font: 'inherit', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 0, padding: 0, borderRadius: 10, border: `1px solid ${tok.border}`, background: 'transparent', color: 'inherit', cursor: 'pointer', overflow: 'hidden' },
+  cover: { width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', display: 'block', background: tok.layer },
+  coverContain: { width: '100%', aspectRatio: '16 / 10', objectFit: 'contain', display: 'block', background: tok.layer },
+  body: { padding: '6px 8px 8px', display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 },
+  name: { fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
+}
+
+function when(iso: string): string {
+  const date = new Date(iso)
+  if (Number.isNaN(date.getTime())) return ''
+  return date.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+}
+
+function ShelfCard({ game, sessionId, readBytes, t, open }: { game: ShelfGame; sessionId: string; readBytes: ReadBytes; t: T; open: (game: ShelfGame) => void }) {
+  const url = useFileUrl(readBytes, sessionId, game.cover, game.updatedAt)
+  // Playtest pictures fill the frame; a character picture is shown whole.
+  const screenshot = game.cover !== undefined && /\.jpe?g$/iu.test(game.cover)
+  const meta = [game.dimension === '3d' ? '3D' : game.dimension === '2d' ? '2D' : '',
+    game.built ? '' : t('shelf.notBuilt'),
+    game.versions > 0 ? t('shelf.versions', { count: String(game.versions) }) : '',
+    when(game.updatedAt)].filter(Boolean).join(' · ')
+  return <button type="button" style={shelfStyle.card} onClick={() => { open(game) }} title={t('shelf.play', { title: game.title })} data-project={game.project}>
+    {url ? <img src={url} alt="" style={screenshot ? shelfStyle.cover : shelfStyle.coverContain} /> : <div style={shelfStyle.cover} />}
+    <div style={shelfStyle.body}>
+      <span style={shelfStyle.name}>{game.title}</span>
+      <span style={s.small}>{meta}</span>
+    </div>
+  </button>
+}
+
+function ShelfTab(props: any): ReactNode {
+  const { useTabInfo, t, shelfSession, readBytes, listDir, useSessions } = props as { useTabInfo: () => any; t: T; useSessions?: (select: (sessions: any) => unknown) => unknown } & ShelfInjected
+  const { tab } = useTabInfo()
+  const sessionId: string = shelfSession || props.sessionId
+  const cwd = (useSessions ? useSessions(sessions => sessions?.byId?.[sessionId]?.cwd) : undefined) as string | undefined
+  const [version, setVersion] = useState(0)
+  const [scan, setScan] = useState<{ games: ShelfGame[]; partial: boolean }>()
+  const visible = tab?.visible !== false
+
+  useEffect(() => {
+    const listener = () => { setVersion(value => value + 1) }
+    refreshBus.addEventListener('refresh', listener)
+    return () => { refreshBus.removeEventListener('refresh', listener) }
+  }, [])
+
+  useEffect(() => {
+    if (!sessionId || !cwd || !visible) return
+    const controller = new AbortController()
+    const read = async (path: string, signal: AbortSignal) => new TextDecoder().decode((await readBytes(sessionId, path, signal)).data)
+    scanShelf((path, signal) => listDir(sessionId, path, signal), read, cwd, controller.signal)
+      .then(result => { if (!controller.signal.aborted) setScan(result) })
+      .catch(() => { if (!controller.signal.aborted) setScan({ games: [], partial: true }) })
+    return () => { controller.abort() }
+  }, [sessionId, cwd, visible, version, readBytes, listDir])
+
+  const open = useCallback((game: ShelfGame) => {
+    tab.actions.openResource(studioAddress(sessionId, game.project))
+  }, [tab, sessionId])
+
+  return <div style={s.root} data-plugin="dsh-game-studio" data-view="shelf">
+    <div style={s.bar}>
+      <span style={s.title}>{t('shelf.title')}</span>
+      {scan && <span style={s.small}>{t('shelf.count', { count: String(scan.games.length) })}</span>}
+      <button type="button" style={s.button} onClick={() => { setVersion(value => value + 1) }}>{t('shelf.refresh')}</button>
+    </div>
+    {!sessionId || !cwd ? <div style={s.hint}>{t('shelf.noSession')}</div>
+      : scan === undefined ? <div style={s.hint}>{t('shelf.scanning')}</div>
+        : <>
+          {scan.partial && <div style={s.hint}>{t('shelf.partial')}</div>}
+          {scan.games.length === 0 ? <div style={{ ...s.hint, borderBottom: 0 }}>{t('shelf.empty')}</div>
+            : <div style={shelfStyle.grid}>
+              {scan.games.map(game => <ShelfCard key={game.project} game={game} sessionId={sessionId} readBytes={readBytes} t={t} open={open} />)}
+            </div>}
+        </>}
+  </div>
+}
+
+function ShelfIcon(props: { size?: number }) {
+  const size = props?.size ?? 16
+  return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+    <path d="M7 8h10a4 4 0 0 1 4 4v2.5a2.5 2.5 0 0 1-4.6 1.4L15 14H9l-1.4 1.9A2.5 2.5 0 0 1 3 14.5V12a4 4 0 0 1 4-4z" />
+    <path d="M8 10.5v3M6.5 12h3" /><circle cx="15.5" cy="11.5" r=".6" fill="currentColor" /><circle cx="17" cy="13" r=".6" fill="currentColor" />
+  </svg>
+}
+
 // ---------------------------------------------------------------- chat rows
 
 interface RowInjected { openStudio: (sessionId: string, project: string) => void }
@@ -434,6 +529,24 @@ export function apply(ctx: any): void {
     name: 'sidebar.right.pane.tab', key: ID, locale: NS,
     inject: (): TabInjected => ({ readBytes, runCommand }),
   }, StudioTab)), 'dsh-game-studio: tab body')
+
+  const listDir: ListDir = async (sessionId, path, signal) => {
+    const result = await ctx.remote.workspaceFiles.list(sessionId, path, signal)
+    if (!result.ok) throw new Error(`${result.error?.message ?? 'list failed'} (${path})`)
+    return { entries: result.value.entries ?? [], truncated: result.value.truncated === true }
+  }
+
+  ctx.effect(() => ctx.sidebarRightTabs.register({
+    id: SHELF_ID,
+    kind: SHELF_KIND,
+    title: () => t('shelf.title'),
+    guide: [{ id: 'shelf', order: 60, title: () => t('guide.title'), description: () => t('guide.description'), icon: ShelfIcon }],
+  }), 'dsh-game-studio: shelf type')
+
+  ctx.effect(() => ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots.register({
+    name: 'sidebar.right.pane.tab', key: SHELF_ID, locale: NS,
+    inject: (sessionId: string): ShelfInjected => ({ shelfSession: typeof sessionId === 'string' ? sessionId : '', readBytes, listDir }),
+  }, ShelfTab)), 'dsh-game-studio: shelf body')
 
   for (const tool of TOOLS) {
     ctx.slots.inject('tool.call.toolview', () => ctx.slots.register({

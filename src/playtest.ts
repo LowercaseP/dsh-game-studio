@@ -4,7 +4,7 @@
  * return what happened plus screenshots. Rule overrides apply to this run only;
  * the project, its dist/ build and its version history are never touched.
  */
-import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { copyFile, mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { extname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 import { renderHtml } from './build.ts'
@@ -387,6 +387,9 @@ export async function playtest(dir: string, options: PlaytestOptions = {}): Prom
     if (typeof state.hearts === 'number') report.hearts = state.hearts
     if (fps.length > 0) report.fps = { min: Math.min(...fps), avg: Math.round(fps.reduce((a, b) => a + b, 0) / fps.length) }
     if (state.phase === 'playing') report.notes.push(`Still playing after ${seconds}s; pass rules such as {"duration": 3} to reach the end screen quickly.`)
+    // The "My games" shelf shows the latest mid-game picture as the cover.
+    const cover = report.shots.find(item => item.name === 'mid') ?? report.shots.find(item => item.name === 'title')
+    if (cover) await copyFile(cover.file, paths.cover(dir)).catch(() => {})
     return report
   } catch (error) {
     if (options.signal?.aborted) throw new StudioError('Playtest was cancelled', 'CANCELLED')

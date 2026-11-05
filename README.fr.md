@@ -41,6 +41,7 @@ Demandez un jeu à l'agent en mots simples — « un jeu 3D : un panda roux réc
 | 🕰️ **Historique des versions** | Chaque build qui a modifié le jeu est enregistré ; `game_studio_restore_version` restaure code, règles et illustrations ensemble. |
 | 📦 **Export en un seul fichier** | `game_studio_export` écrit un fichier HTML autonome sans accès réseau — ouvrez-le dans n'importe quel navigateur ou déposez-le sur n'importe quel hébergement statique. |
 | 📱 **Essayez-le sur votre téléphone** | `game_studio_share` ouvre un lien temporaire en lecture seule sur votre réseau local, avec un code QR dans la barre latérale. |
+| 🗂️ **Mes jeux** | Ouvrez le **+** de la barre latérale et choisissez **Game Studio · Mes jeux** : chaque jeu de l'espace de travail y apparaît en carte, avec l'image de son dernier test. Un clic pour jouer — sans agent, sans jetons. |
 
 ## Des jeux faits avec
 

@@ -41,6 +41,7 @@ Mintalah sebuah game kepada agen dengan kata-kata sederhana — "game 3D: seekor
 | 🕰️ **Riwayat versi** | Setiap build yang mengubah game akan disimpan; `game_studio_restore_version` mengembalikan kode, aturan, dan seni secara bersamaan. |
 | 📦 **Ekspor satu file** | `game_studio_export` menulis file HTML mandiri tanpa akses jaringan — buka di browser apa pun atau unggah ke layanan hosting statis mana pun. |
 | 📱 **Coba di ponsel Anda** | `game_studio_share` membuka tautan baca-saja sementara di jaringan lokal Anda, lengkap dengan kode QR di bilah sisi. |
+| 🗂️ **Game saya** | Buka **+** di bilah samping dan pilih **Game Studio · Game saya**: setiap game di ruang kerja tampil sebagai kartu dengan gambar uji main terakhir. Klik untuk bermain, tanpa agent dan tanpa token. |
 
 ## Game yang dibuat dengannya
 
