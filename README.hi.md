@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>पैकेज: <code>@zseven-w/dsh-game-studio</code> &middot; वर्तमान प्लगइन रिलीज़: <code>0.1.0-rc.1</code> &middot; DSH <code>0.2.1-rc.5</code> के साथ परीक्षित</sub>
+  <sub>पैकेज: <code>@zseven-w/dsh-game-studio</code> &middot; वर्तमान प्लगइन रिलीज़: <code>0.1.0-rc.2</code> &middot; DSH <code>0.2.1-rc.5</code> के साथ परीक्षित</sub>
 </p>
 
 <br />

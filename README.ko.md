@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>패키지: <code>@zseven-w/dsh-game-studio</code> &middot; 현재 플러그인 릴리스: <code>0.1.0-rc.1</code> &middot; DSH <code>0.2.1-rc.5</code>로 테스트됨</sub>
+  <sub>패키지: <code>@zseven-w/dsh-game-studio</code> &middot; 현재 플러그인 릴리스: <code>0.1.0-rc.2</code> &middot; DSH <code>0.2.1-rc.5</code>로 테스트됨</sub>
 </p>
 
 <br />

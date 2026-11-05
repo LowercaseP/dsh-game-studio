@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Gói: <code>@zseven-w/dsh-game-studio</code> &middot; Bản phát hành plugin hiện tại: <code>0.1.0-rc.1</code> &middot; Đã thử nghiệm với DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Gói: <code>@zseven-w/dsh-game-studio</code> &middot; Bản phát hành plugin hiện tại: <code>0.1.0-rc.2</code> &middot; Đã thử nghiệm với DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />

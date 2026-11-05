@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>套件：<code>@zseven-w/dsh-game-studio</code> &middot; 目前的外掛版本：<code>0.1.0-rc.1</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 下測試</sub>
+  <sub>套件：<code>@zseven-w/dsh-game-studio</code> &middot; 目前的外掛版本：<code>0.1.0-rc.2</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 下測試</sub>
 </p>
 
 <br />

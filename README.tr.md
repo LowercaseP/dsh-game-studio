@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Güncel eklenti sürümü: <code>0.1.0-rc.1</code> &middot; DSH <code>0.2.1-rc.5</code> ile test edildi</sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Güncel eklenti sürümü: <code>0.1.0-rc.2</code> &middot; DSH <code>0.2.1-rc.5</code> ile test edildi</sub>
 </p>
 
 <br />

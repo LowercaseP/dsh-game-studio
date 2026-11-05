@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Pacote: <code>@zseven-w/dsh-game-studio</code> &middot; Versão atual do plugin: <code>0.1.0-rc.1</code> &middot; Testado com DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Pacote: <code>@zseven-w/dsh-game-studio</code> &middot; Versão atual do plugin: <code>0.1.0-rc.2</code> &middot; Testado com DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
