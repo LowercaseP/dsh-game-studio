@@ -42,6 +42,26 @@ Ask the agent for a game in plain words — "a 3D game: a red panda collects bam
 | 📦 **One-file export** | `game_studio_export` writes a self-contained HTML file with no network access — open it in any browser or put it on any static host. |
 | 📱 **Try it on your phone** | `game_studio_share` opens a temporary read-only link on your local network, with a QR code in the sidebar. |
 
+## Games made with it
+
+Four games from our test runs. Each started from the one sentence under it, in a fresh session (prompts translated from Chinese); later requests in the same session tweaked some of them, as noted. Gameplay is recorded with each game's own autoplay.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Moonlit Fox: Lantern Isle — 3D voxel template, live gameplay" width="640" />
+</p>
+<p align="center"><sub>Moonlit Fox: Lantern Isle — 3D voxel template, live gameplay</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Make a small game: a little fox collects lanterns in a moonlit forest and dodges thorn monsters." width="100%" /><br /><sub>“Make a small game: a little fox collects lanterns in a moonlit forest and dodges thorn monsters.”<br />2D template; characters later swapped for picked AI art</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Make a 3D game: a little fox collects lanterns on a voxel island and dodges thorn monsters." width="100%" /><br /><sub>“Make a 3D game: a little fox collects lanterns on a voxel island and dodges thorn monsters.”<br />3D voxel template; the lantern model was redone in a later request</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Make a 3D game: a little penguin collects fish on an iceberg and dodges seals." width="100%" /><br /><sub>“Make a 3D game: a little penguin collects fish on an iceberg and dodges seals.”<br />3D; a later request added the red hat</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Make a 3D game: a red panda collects bamboo shoots in a bamboo forest and dodges wild boars." width="100%" /><br /><sub>“Make a 3D game: a red panda collects bamboo shoots in a bamboo forest and dodges wild boars.”<br />3D; characters later swapped for AI art, the forest stays 3D</sub></td>
+</tr>
+</table>
+
 ## How well it works
 
 Measured in a real DSH with DeepSeek-V4.1-Flash, each game made from one sentence in a fresh session, scored by an independent playtest (2026-11-04/05):

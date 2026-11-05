@@ -42,6 +42,26 @@ Demandez un jeu à l'agent en mots simples — « un jeu 3D : un panda roux réc
 | 📦 **Export en un seul fichier** | `game_studio_export` écrit un fichier HTML autonome sans accès réseau — ouvrez-le dans n'importe quel navigateur ou déposez-le sur n'importe quel hébergement statique. |
 | 📱 **Essayez-le sur votre téléphone** | `game_studio_share` ouvre un lien temporaire en lecture seule sur votre réseau local, avec un code QR dans la barre latérale. |
 
+## Des jeux faits avec
+
+Quatre jeux issus de nos tests. Chacun est parti de la phrase indiquée dessous, dans une session neuve (consignes traduites du chinois) ; certains ont ensuite été retouchés par d'autres demandes dans la même session, comme indiqué. Les parties sont enregistrées avec le pilote automatique de chaque jeu.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Renard au clair de lune : l'île aux lanternes — modèle voxel 3D, partie réelle" width="640" />
+</p>
+<p align="center"><sub>Renard au clair de lune : l'île aux lanternes — modèle voxel 3D, partie réelle</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Fais un petit jeu : un renardeau ramasse des lanternes dans une forêt au clair de lune et évite des monstres d'épines." width="100%" /><br /><sub>“Fais un petit jeu : un renardeau ramasse des lanternes dans une forêt au clair de lune et évite des monstres d'épines.”<br />Modèle 2D ; personnages remplacés ensuite par des visuels IA choisis</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Fais un jeu en 3D : un renardeau ramasse des lanternes sur une île en voxels et évite des monstres d'épines." width="100%" /><br /><sub>“Fais un jeu en 3D : un renardeau ramasse des lanternes sur une île en voxels et évite des monstres d'épines.”<br />Modèle voxel 3D ; la lanterne a été refaite lors d'une demande ultérieure</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Fais un jeu en 3D : un petit manchot ramasse des poissons sur un iceberg et évite des phoques." width="100%" /><br /><sub>“Fais un jeu en 3D : un petit manchot ramasse des poissons sur un iceberg et évite des phoques.”<br />3D ; le bonnet rouge vient d'une demande ultérieure</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Fais un jeu en 3D : un panda roux ramasse des pousses de bambou dans une bambouseraie et évite des sangliers." width="100%" /><br /><sub>“Fais un jeu en 3D : un panda roux ramasse des pousses de bambou dans une bambouseraie et évite des sangliers.”<br />3D ; personnages remplacés ensuite par des visuels IA, la forêt reste en 3D</sub></td>
+</tr>
+</table>
+
 ## Efficacité constatée
 
 Mesuré dans un vrai DSH avec DeepSeek-V4.1-Flash, chaque jeu créé à partir d'une phrase dans une session neuve, évalué par un test de jeu indépendant (2026-11-04/05) :

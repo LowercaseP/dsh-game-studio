@@ -42,6 +42,26 @@ Ajandan günlük dille bir oyun isteyin — "3D bir oyun: kırmızı bir panda o
 | 📦 **Tek dosya dışa aktarma** | `game_studio_export` ağ erişimi olmayan, bağımsız bir HTML dosyası yazar — istediğiniz tarayıcıda açın veya herhangi bir statik barındırma hizmetine koyun. |
 | 📱 **Telefonunuzda deneyin** | `game_studio_share` kenar çubuğunda bir QR koduyla yerel ağınızda geçici, salt okunur bir bağlantı açar. |
 
+## Onunla yapılan oyunlar
+
+Testlerimizden dört oyun. Her biri yeni bir oturumda, altındaki tek cümleyle başladı (istemler Çinceden çevrildi); bazıları sonradan aynı oturumdaki isteklerle düzeltildi, belirtildiği gibi. Oynanış, her oyunun kendi otomatik oynatıcısıyla kaydedildi.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Ay Işığı Tilkisi: Fener Adası — 3D voksel şablonu, gerçek oynanış" width="640" />
+</p>
+<p align="center"><sub>Ay Işığı Tilkisi: Fener Adası — 3D voksel şablonu, gerçek oynanış</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Küçük bir oyun yap: yavru bir tilki ay ışığındaki ormanda fener toplasın ve dikenli canavarlardan kaçsın." width="100%" /><br /><sub>“Küçük bir oyun yap: yavru bir tilki ay ışığındaki ormanda fener toplasın ve dikenli canavarlardan kaçsın.”<br />2D şablon; karakterler sonra seçilen yapay zekâ görselleriyle değiştirildi</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="3D bir oyun yap: yavru bir tilki voksel bir adada fener toplasın ve dikenli canavarlardan kaçsın." width="100%" /><br /><sub>“3D bir oyun yap: yavru bir tilki voksel bir adada fener toplasın ve dikenli canavarlardan kaçsın.”<br />3D voksel şablon; fener modeli sonraki bir istekte yeniden yapıldı</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="3D bir oyun yap: yavru bir penguen buzdağında balık toplasın ve foklardan kaçsın." width="100%" /><br /><sub>“3D bir oyun yap: yavru bir penguen buzdağında balık toplasın ve foklardan kaçsın.”<br />3D; kırmızı şapka sonraki bir istekle eklendi</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="3D bir oyun yap: bir kızıl panda bambu ormanında bambu filizi toplasın ve yaban domuzlarından kaçsın." width="100%" /><br /><sub>“3D bir oyun yap: bir kızıl panda bambu ormanında bambu filizi toplasın ve yaban domuzlarından kaçsın.”<br />3D; karakterler sonra yapay zekâ görselleriyle değiştirildi, orman 3D kaldı</sub></td>
+</tr>
+</table>
+
 ## Ne kadar iyi çalışıyor
 
 Gerçek bir DSH içinde DeepSeek-V4.1-Flash ile ölçüldü; her oyun yeni bir oturumda tek bir cümleden üretildi ve bağımsız bir oynanış testiyle puanlandı (2026-11-04/05):

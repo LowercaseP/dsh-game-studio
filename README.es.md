@@ -42,6 +42,26 @@ Pídele al agente un juego en palabras sencillas — «un juego 3D: un panda roj
 | 📦 **Exportación en un solo archivo** | `game_studio_export` escribe un archivo HTML autosuficiente y sin acceso a la red — ábrelo en cualquier navegador o ponlo en cualquier servidor estático. |
 | 📱 **Pruébalo en tu teléfono** | `game_studio_share` abre un enlace temporal de solo lectura en tu red local, con un código QR en la barra lateral. |
 
+## Juegos hechos con él
+
+Cuatro juegos de nuestras pruebas. Cada uno empezó con la frase que aparece debajo, en una sesión nueva (instrucciones traducidas del chino); en algunos, peticiones posteriores en la misma sesión hicieron retoques, como se indica. Las partidas se grabaron con el piloto automático de cada juego.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Zorro a la luz de la luna: la isla de los farolillos — plantilla vóxel 3D, partida real" width="640" />
+</p>
+<p align="center"><sub>Zorro a la luz de la luna: la isla de los farolillos — plantilla vóxel 3D, partida real</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Haz un juego pequeño: un zorrito recoge farolillos en un bosque a la luz de la luna y esquiva monstruos de espinas." width="100%" /><br /><sub>“Haz un juego pequeño: un zorrito recoge farolillos en un bosque a la luz de la luna y esquiva monstruos de espinas.”<br />Plantilla 2D; personajes cambiados después por arte de IA elegido</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Haz un juego en 3D: un zorrito recoge farolillos en una isla de vóxeles y esquiva monstruos de espinas." width="100%" /><br /><sub>“Haz un juego en 3D: un zorrito recoge farolillos en una isla de vóxeles y esquiva monstruos de espinas.”<br />Plantilla vóxel 3D; el modelo del farolillo se rehízo en una petición posterior</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Haz un juego en 3D: un pingüinito recoge peces en un iceberg y esquiva focas." width="100%" /><br /><sub>“Haz un juego en 3D: un pingüinito recoge peces en un iceberg y esquiva focas.”<br />3D; el gorro rojo se añadió en una petición posterior</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Haz un juego en 3D: un panda rojo recoge brotes de bambú en un bosque de bambú y esquiva jabalíes." width="100%" /><br /><sub>“Haz un juego en 3D: un panda rojo recoge brotes de bambú en un bosque de bambú y esquiva jabalíes.”<br />3D; personajes cambiados después por arte de IA, el bosque sigue en 3D</sub></td>
+</tr>
+</table>
+
 ## Qué tan bien funciona
 
 Medido en un DSH real con DeepSeek-V4.1-Flash, cada juego creado a partir de una frase en una sesión nueva y evaluado por una prueba de juego independiente (2026-11-04/05):

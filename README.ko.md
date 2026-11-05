@@ -42,6 +42,26 @@
 | 📦 **단일 파일 내보내기** | `game_studio_export`가 네트워크 접근 없이 자립적인 HTML 파일 하나를 만듭니다 — 어떤 브라우저에서든 열거나 아무 정적 호스트에 올릴 수 있습니다. |
 | 📱 **휴대폰에서 사용해 보기** | `game_studio_share`가 로컬 네트워크에 임시 읽기 전용 링크를 열고, 사이드바에 QR 코드를 보여줍니다. |
 
+## 이걸로 만든 게임
+
+테스트하며 만든 게임 네 개입니다. 모두 새 세션에서 그림 아래 한 문장으로 시작했습니다(프롬프트는 중국어 번역). 일부는 같은 세션에서 나중에 수정을 요청했고, 표시해 두었습니다. 플레이 영상은 각 게임의 자체 오토플레이로 녹화했습니다.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="《달빛 여우: 등불 섬》 — 3D 복셀 템플릿, 실제 플레이" width="640" />
+</p>
+<p align="center"><sub>《달빛 여우: 등불 섬》 — 3D 복셀 템플릿, 실제 플레이</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="작은 게임을 만들어 줘: 아기 여우가 달빛 숲에서 등불을 모으고 가시 괴물을 피한다." width="100%" /><br /><sub>“작은 게임을 만들어 줘: 아기 여우가 달빛 숲에서 등불을 모으고 가시 괴물을 피한다.”<br />2D 템플릿, 캐릭터는 나중에 고른 AI 아트로 교체</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="3D 게임을 만들어 줘: 아기 여우가 복셀 섬에서 등불을 모으고 가시 괴물을 피한다." width="100%" /><br /><sub>“3D 게임을 만들어 줘: 아기 여우가 복셀 섬에서 등불을 모으고 가시 괴물을 피한다.”<br />3D 복셀 템플릿, 등불 모델은 이후 요청으로 다시 만듦</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="3D 게임을 만들어 줘: 아기 펭귄이 빙산에서 물고기를 모으고 물범을 피한다." width="100%" /><br /><sub>“3D 게임을 만들어 줘: 아기 펭귄이 빙산에서 물고기를 모으고 물범을 피한다.”<br />3D, 빨간 모자는 이후 요청으로 추가</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="3D 게임을 만들어 줘: 레서판다가 대나무 숲에서 죽순을 모으고 멧돼지를 피한다." width="100%" /><br /><sub>“3D 게임을 만들어 줘: 레서판다가 대나무 숲에서 죽순을 모으고 멧돼지를 피한다.”<br />3D, 캐릭터는 나중에 AI 아트로 교체, 숲은 그대로 3D</sub></td>
+</tr>
+</table>
+
 ## 어느 정도 잘 작동하나요
 
 실제 DSH에서 DeepSeek-V4.1-Flash로 측정했으며, 각 게임은 새 세션에서 한 문장으로 만들고 독립적인 플레이 테스트로 채점했습니다 (2026-11-04/05):

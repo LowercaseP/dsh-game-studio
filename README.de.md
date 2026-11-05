@@ -42,6 +42,26 @@ Bitte den Agenten in einfachen Worten um ein Spiel — „ein 3D-Spiel: ein rote
 | 📦 **Ein-Datei-Export** | `game_studio_export` schreibt eine in sich geschlossene HTML-Datei ohne Netzwerkzugriff — öffne sie in einem beliebigen Browser oder lade sie auf einen beliebigen statischen Host. |
 | 📱 **Probiere es auf deinem Telefon** | `game_studio_share` öffnet einen temporären, schreibgeschützten Link in deinem lokalen Netzwerk, mit QR-Code in der Seitenleiste. |
 
+## Damit gebaute Spiele
+
+Vier Spiele aus unseren Testläufen. Jedes begann mit dem Satz darunter in einer neuen Sitzung (Prompts aus dem Chinesischen übersetzt); bei einigen haben spätere Anfragen in derselben Sitzung nachgebessert, wie vermerkt. Aufgenommen mit dem eingebauten Autoplay des jeweiligen Spiels.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Mondscheinfuchs: Laterneninsel — 3D-Voxel-Vorlage, echtes Gameplay" width="640" />
+</p>
+<p align="center"><sub>Mondscheinfuchs: Laterneninsel — 3D-Voxel-Vorlage, echtes Gameplay</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Mach ein kleines Spiel: Ein kleiner Fuchs sammelt Laternen in einem mondhellen Wald und weicht Dornenmonstern aus." width="100%" /><br /><sub>“Mach ein kleines Spiel: Ein kleiner Fuchs sammelt Laternen in einem mondhellen Wald und weicht Dornenmonstern aus.”<br />2D-Vorlage; Figuren später gegen ausgewählte KI-Grafiken getauscht</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Mach ein 3D-Spiel: Ein kleiner Fuchs sammelt Laternen auf einer Voxel-Insel und weicht Dornenmonstern aus." width="100%" /><br /><sub>“Mach ein 3D-Spiel: Ein kleiner Fuchs sammelt Laternen auf einer Voxel-Insel und weicht Dornenmonstern aus.”<br />3D-Voxel-Vorlage; das Laternenmodell wurde in einer späteren Anfrage neu gebaut</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Mach ein 3D-Spiel: Ein kleiner Pinguin sammelt Fische auf einem Eisberg und weicht Robben aus." width="100%" /><br /><sub>“Mach ein 3D-Spiel: Ein kleiner Pinguin sammelt Fische auf einem Eisberg und weicht Robben aus.”<br />3D; die rote Mütze kam mit einer späteren Anfrage</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Mach ein 3D-Spiel: Ein Roter Panda sammelt Bambussprossen in einem Bambuswald und weicht Wildschweinen aus." width="100%" /><br /><sub>“Mach ein 3D-Spiel: Ein Roter Panda sammelt Bambussprossen in einem Bambuswald und weicht Wildschweinen aus.”<br />3D; Figuren später gegen KI-Grafiken getauscht, der Wald bleibt 3D</sub></td>
+</tr>
+</table>
+
 ## Wie gut es funktioniert
 
 Gemessen in einem echten DSH mit DeepSeek-V4.1-Flash, jedes Spiel aus einem Satz in einer frischen Session erzeugt, bewertet durch einen unabhängigen Playtest (2026-11-04/05):

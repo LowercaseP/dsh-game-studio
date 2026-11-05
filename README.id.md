@@ -42,6 +42,26 @@ Mintalah sebuah game kepada agen dengan kata-kata sederhana — "game 3D: seekor
 | 📦 **Ekspor satu file** | `game_studio_export` menulis file HTML mandiri tanpa akses jaringan — buka di browser apa pun atau unggah ke layanan hosting statis mana pun. |
 | 📱 **Coba di ponsel Anda** | `game_studio_share` membuka tautan baca-saja sementara di jaringan lokal Anda, lengkap dengan kode QR di bilah sisi. |
 
+## Game yang dibuat dengannya
+
+Empat game dari uji coba kami. Masing-masing dimulai dari satu kalimat di bawahnya, dalam sesi baru (prompt diterjemahkan dari bahasa Mandarin); beberapa kemudian disempurnakan lewat permintaan lanjutan di sesi yang sama, seperti dicatat. Gameplay direkam dengan autoplay bawaan tiap game.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Rubah Cahaya Bulan: Pulau Lentera — templat voxel 3D, gameplay asli" width="640" />
+</p>
+<p align="center"><sub>Rubah Cahaya Bulan: Pulau Lentera — templat voxel 3D, gameplay asli</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Buat game kecil: anak rubah mengumpulkan lentera di hutan bercahaya bulan dan menghindari monster duri." width="100%" /><br /><sub>“Buat game kecil: anak rubah mengumpulkan lentera di hutan bercahaya bulan dan menghindari monster duri.”<br />Templat 2D; karakter kemudian diganti dengan seni AI pilihan</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Buat game 3D: anak rubah mengumpulkan lentera di pulau voxel dan menghindari monster duri." width="100%" /><br /><sub>“Buat game 3D: anak rubah mengumpulkan lentera di pulau voxel dan menghindari monster duri.”<br />Templat voxel 3D; model lentera dibuat ulang di permintaan berikutnya</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Buat game 3D: anak penguin mengumpulkan ikan di gunung es dan menghindari anjing laut." width="100%" /><br /><sub>“Buat game 3D: anak penguin mengumpulkan ikan di gunung es dan menghindari anjing laut.”<br />3D; topi merah ditambahkan di permintaan berikutnya</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Buat game 3D: panda merah mengumpulkan rebung di hutan bambu dan menghindari babi hutan." width="100%" /><br /><sub>“Buat game 3D: panda merah mengumpulkan rebung di hutan bambu dan menghindari babi hutan.”<br />3D; karakter kemudian diganti dengan seni AI, hutannya tetap 3D</sub></td>
+</tr>
+</table>
+
 ## Seberapa baik kinerjanya
 
 Diukur pada DSH nyata dengan DeepSeek-V4.1-Flash, setiap game dibuat dari satu kalimat dalam sesi baru, dan dinilai melalui uji main independen (2026-11-04/05):

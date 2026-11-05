@@ -42,6 +42,26 @@
 | 📦 **单文件导出** | `game_studio_export` 生成一个不联网、自包含的 HTML 文件，用任何浏览器打开，或放到任意静态托管上。 |
 | 📱 **在手机上试玩** | `game_studio_share` 在本地网络上开一个临时只读链接，侧栏里会显示二维码。 |
 
+## 用它做出来的游戏
+
+下面是实测中做出的四个游戏。每个都是新会话里用图下那一句话开始的；有几个后来在同一会话里又提了修改，已注明。游戏画面用游戏自带的自动驾驶录制。
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="《月光狐狸：灯笼岛》——3D 体素模板，实机画面" width="640" />
+</p>
+<p align="center"><sub>《月光狐狸：灯笼岛》——3D 体素模板，实机画面</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="做一个小游戏：小狐狸在月光森林里收集灯笼，躲开荆棘怪。" width="100%" /><br /><sub>「做一个小游戏：小狐狸在月光森林里收集灯笼，躲开荆棘怪。」<br />2D 模板；角色后来换成了挑选的 AI 美术</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="做一个 3D 小游戏：小狐狸在体素小岛上收集灯笼，躲开荆棘怪。" width="100%" /><br /><sub>「做一个 3D 小游戏：小狐狸在体素小岛上收集灯笼，躲开荆棘怪。」<br />3D 体素模板；灯笼模型在后续请求里重做过</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="做一个 3D 小游戏：小企鹅在冰山上收集小鱼，躲开海豹。" width="100%" /><br /><sub>「做一个 3D 小游戏：小企鹅在冰山上收集小鱼，躲开海豹。」<br />3D；红帽子是后续请求加的</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="做一个 3D 小游戏：小熊猫在竹林里收集竹笋，躲开野猪。" width="100%" /><br /><sub>「做一个 3D 小游戏：小熊猫在竹林里收集竹笋，躲开野猪。」<br />3D；角色后来换成 AI 美术，竹林仍是 3D</sub></td>
+</tr>
+</table>
+
 ## 实际效果
 
 在真实 DSH 里用 DeepSeek-V4.1-Flash 实测，每个游戏都在新会话里用一句话做出来，再由独立试玩打分（2026-11-04/05）：

@@ -42,6 +42,26 @@ Yêu cầu agent tạo một trò chơi bằng lời lẽ tự nhiên — "một
 | 📦 **Xuất một tệp duy nhất** | `game_studio_export` ghi ra một tệp HTML độc lập không cần kết nối mạng — mở được trên mọi trình duyệt hoặc đưa lên bất kỳ máy chủ tĩnh nào. |
 | 📱 **Thử ngay trên điện thoại** | `game_studio_share` mở một liên kết chỉ đọc tạm thời trên mạng cục bộ của bạn, kèm mã QR ở thanh bên. |
 
+## Những trò chơi làm bằng nó
+
+Bốn trò chơi từ các lần thử nghiệm. Mỗi trò bắt đầu từ một câu ghi bên dưới, trong một phiên mới (lời nhắc dịch từ tiếng Trung); một vài trò sau đó được chỉnh thêm bằng yêu cầu khác trong cùng phiên, như đã ghi chú. Cảnh chơi được ghi bằng chế độ tự chơi có sẵn của từng trò.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Cáo ánh trăng: Đảo đèn lồng — mẫu voxel 3D, cảnh chơi thật" width="640" />
+</p>
+<p align="center"><sub>Cáo ánh trăng: Đảo đèn lồng — mẫu voxel 3D, cảnh chơi thật</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Làm một trò chơi nhỏ: cáo con nhặt đèn lồng trong khu rừng dưới ánh trăng và né quái gai." width="100%" /><br /><sub>“Làm một trò chơi nhỏ: cáo con nhặt đèn lồng trong khu rừng dưới ánh trăng và né quái gai.”<br />Mẫu 2D; nhân vật sau đó được thay bằng ảnh AI đã chọn</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Làm một trò chơi 3D: cáo con nhặt đèn lồng trên hòn đảo voxel và né quái gai." width="100%" /><br /><sub>“Làm một trò chơi 3D: cáo con nhặt đèn lồng trên hòn đảo voxel và né quái gai.”<br />Mẫu voxel 3D; mô hình đèn lồng được làm lại ở một yêu cầu sau</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Làm một trò chơi 3D: chim cánh cụt con nhặt cá trên tảng băng trôi và né hải cẩu." width="100%" /><br /><sub>“Làm một trò chơi 3D: chim cánh cụt con nhặt cá trên tảng băng trôi và né hải cẩu.”<br />3D; chiếc mũ đỏ được thêm ở một yêu cầu sau</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Làm một trò chơi 3D: gấu trúc đỏ nhặt măng trong rừng tre và né lợn rừng." width="100%" /><br /><sub>“Làm một trò chơi 3D: gấu trúc đỏ nhặt măng trong rừng tre và né lợn rừng.”<br />3D; nhân vật sau đó được thay bằng ảnh AI, khu rừng vẫn là 3D</sub></td>
+</tr>
+</table>
+
 ## Hiệu quả hoạt động
 
 Đo lường trong môi trường DSH thực tế với DeepSeek-V4.1-Flash, mỗi trò chơi được tạo từ một câu duy nhất trong một phiên mới và được chấm điểm bằng một lượt chơi thử độc lập (2026-11-04/05):

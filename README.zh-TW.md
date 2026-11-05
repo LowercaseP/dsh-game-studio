@@ -42,6 +42,26 @@
 | 📦 **單檔匯出** | `game_studio_export` 會寫出一個自包含、不需網路的 HTML 檔案——用任何瀏覽器開啟，或放到任何靜態網頁空間。 |
 | 📱 **在手機上試玩** | `game_studio_share` 會在你的區域網路上開啟一條臨時的唯讀連結，並在側邊欄顯示 QR Code。 |
 
+## 用它做出來的遊戲
+
+以下是實測中做出的四個遊戲。每個都是在新會話裡用圖下那一句話開始的；有幾個後來在同一會話裡又提了修改，已註明。遊戲畫面以遊戲內建的自動駕駛錄製。
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="《月光狐狸：燈籠島》——3D 體素模板，實機畫面" width="640" />
+</p>
+<p align="center"><sub>《月光狐狸：燈籠島》——3D 體素模板，實機畫面</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="做一個小遊戲：小狐狸在月光森林裡收集燈籠，躲開荊棘怪。" width="100%" /><br /><sub>「做一個小遊戲：小狐狸在月光森林裡收集燈籠，躲開荊棘怪。」<br />2D 模板；角色後來換成挑選的 AI 美術</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="做一個 3D 小遊戲：小狐狸在體素小島上收集燈籠，躲開荊棘怪。" width="100%" /><br /><sub>「做一個 3D 小遊戲：小狐狸在體素小島上收集燈籠，躲開荊棘怪。」<br />3D 體素模板；燈籠模型在後續請求中重做過</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="做一個 3D 小遊戲：小企鵝在冰山上收集小魚，躲開海豹。" width="100%" /><br /><sub>「做一個 3D 小遊戲：小企鵝在冰山上收集小魚，躲開海豹。」<br />3D；紅帽子是後續請求加的</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="做一個 3D 小遊戲：小熊貓在竹林裡收集竹筍，躲開野豬。" width="100%" /><br /><sub>「做一個 3D 小遊戲：小熊貓在竹林裡收集竹筍，躲開野豬。」<br />3D；角色後來換成 AI 美術，竹林仍是 3D</sub></td>
+</tr>
+</table>
+
 ## 實際效果如何
 
 在真實的 DSH 中以 DeepSeek-V4.1-Flash 實測，每款遊戲都在全新工作階段中從一句話製作，並由獨立試玩測試評分（2026-11-04/05）：

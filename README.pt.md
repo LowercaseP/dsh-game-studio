@@ -42,6 +42,26 @@ Peça um jogo ao agente em palavras simples — "um jogo 3D: um panda-vermelho c
 | 📦 **Exportação em arquivo único** | `game_studio_export` grava um arquivo HTML autossuficiente sem acesso à rede — abra em qualquer navegador ou coloque em qualquer hospedagem estática. |
 | 📱 **Teste no seu celular** | `game_studio_share` abre um link temporário somente leitura na sua rede local, com um QR code na barra lateral. |
 
+## Jogos feitos com ele
+
+Quatro jogos dos nossos testes. Cada um começou com a frase abaixo dele, numa sessão nova (prompts traduzidos do chinês); em alguns, pedidos posteriores na mesma sessão fizeram ajustes, como indicado. As partidas foram gravadas com o piloto automático de cada jogo.
+
+<p align="center">
+  <img src="./docs/images/dsh-game-studio-play-fox-3d.gif" alt="Raposa ao luar: Ilha das Lanternas — template voxel 3D, partida real" width="640" />
+</p>
+<p align="center"><sub>Raposa ao luar: Ilha das Lanternas — template voxel 3D, partida real</sub></p>
+
+<table>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-moonlit-2d.jpg" alt="Faça um joguinho: uma raposinha coleta lanternas numa floresta ao luar e desvia de monstros de espinhos." width="100%" /><br /><sub>“Faça um joguinho: uma raposinha coleta lanternas numa floresta ao luar e desvia de monstros de espinhos.”<br />Template 2D; personagens trocados depois por arte de IA escolhida</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-fox-3d.jpg" alt="Faça um jogo 3D: uma raposinha coleta lanternas numa ilha de voxels e desvia de monstros de espinhos." width="100%" /><br /><sub>“Faça um jogo 3D: uma raposinha coleta lanternas numa ilha de voxels e desvia de monstros de espinhos.”<br />Template voxel 3D; o modelo da lanterna foi refeito num pedido posterior</sub></td>
+</tr>
+<tr>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-penguin-3d.jpg" alt="Faça um jogo 3D: um pinguinzinho coleta peixes num iceberg e desvia de focas." width="100%" /><br /><sub>“Faça um jogo 3D: um pinguinzinho coleta peixes num iceberg e desvia de focas.”<br />3D; o gorro vermelho veio de um pedido posterior</sub></td>
+<td width="50%"><img src="./docs/images/dsh-game-studio-play-panda-3d.jpg" alt="Faça um jogo 3D: um panda-vermelho coleta brotos de bambu num bambuzal e desvia de javalis." width="100%" /><br /><sub>“Faça um jogo 3D: um panda-vermelho coleta brotos de bambu num bambuzal e desvia de javalis.”<br />3D; personagens trocados depois por arte de IA, a floresta continua 3D</sub></td>
+</tr>
+</table>
+
 ## Quão bem funciona
 
 Medido em um DSH real com DeepSeek-V4.1-Flash, cada jogo feito a partir de uma frase em uma sessão nova, avaliado por um playtest independente (2026-11-04/05):
