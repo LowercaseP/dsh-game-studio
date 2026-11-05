@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paquete: <code>@zseven-w/dsh-game-studio</code> &middot; Versión actual del plugin: <code>0.1.0-rc.1</code> (aún no está en npm — instalar desde el código fuente) &middot; Probado con DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paquete: <code>@zseven-w/dsh-game-studio</code> &middot; Versión actual del plugin: <code>0.1.0-rc.1</code> &middot; Probado con DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@ Los botones de la barra lateral (aplicar, revertir, compilar, exportar, restaura
 
 ## Instalar en DSH
 
-El paquete aún no está en npm. Compílalo desde el código fuente y añade el tarball a un perfil:
+Instálalo desde npm en un perfil de DSH:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

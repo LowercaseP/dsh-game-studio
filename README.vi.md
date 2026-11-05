@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Gói: <code>@zseven-w/dsh-game-studio</code> &middot; Bản phát hành plugin hiện tại: <code>0.1.0-rc.1</code> (chưa có trên npm — cài đặt từ mã nguồn) &middot; Đã thử nghiệm với DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Gói: <code>@zseven-w/dsh-game-studio</code> &middot; Bản phát hành plugin hiện tại: <code>0.1.0-rc.1</code> &middot; Đã thử nghiệm với DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@ Các nút ở thanh bên (áp dụng, hoàn tác, dựng, xuất, khôi phục, 
 
 ## Cài đặt vào DSH
 
-Gói này hiện chưa có trên npm. Hãy dựng từ mã nguồn và thêm tệp tarball vào một hồ sơ (profile):
+Cài đặt từ npm vào một hồ sơ (profile) DSH:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

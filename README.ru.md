@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Пакет: <code>@zseven-w/dsh-game-studio</code> &middot; Текущий релиз плагина: <code>0.1.0-rc.1</code> (ещё нет в npm — установка из исходников) &middot; Протестировано с DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Пакет: <code>@zseven-w/dsh-game-studio</code> &middot; Текущий релиз плагина: <code>0.1.0-rc.1</code> &middot; Протестировано с DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## Установка в DSH
 
-Пакет пока не опубликован в npm. Соберите его из исходного кода и добавьте архив в профиль:
+Установите из npm в профиль DSH:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

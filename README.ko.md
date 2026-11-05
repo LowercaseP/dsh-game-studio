@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>패키지: <code>@zseven-w/dsh-game-studio</code> &middot; 현재 플러그인 릴리스: <code>0.1.0-rc.1</code> (아직 npm에 없음 — 소스에서 설치) &middot; DSH <code>0.2.1-rc.5</code>로 테스트됨</sub>
+  <sub>패키지: <code>@zseven-w/dsh-game-studio</code> &middot; 현재 플러그인 릴리스: <code>0.1.0-rc.1</code> &middot; DSH <code>0.2.1-rc.5</code>로 테스트됨</sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## DSH에 설치
 
-패키지는 아직 npm에 없습니다. 소스에서 빌드하여 tarball을 프로필에 추가하세요:
+npm에서 DSH 프로필로 설치하세요:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

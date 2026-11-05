@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>パッケージ: <code>@zseven-w/dsh-game-studio</code> &middot; 現在のプラグインリリース: <code>0.1.0-rc.1</code>(まだnpmには未公開 — ソースからインストール)&middot; 動作確認: DSH <code>0.2.1-rc.5</code></sub>
+  <sub>パッケージ: <code>@zseven-w/dsh-game-studio</code> &middot; 現在のプラグインリリース: <code>0.1.0-rc.1</code> &middot; 動作確認: DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## DSHへのインストール
 
-このパッケージはまだnpmに公開されていません。ソースからビルドして、tarballをプロファイルに追加します:
+npm から DSH プロファイルにインストールします:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

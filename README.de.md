@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Aktuelles Plugin-Release: <code>0.1.0-rc.1</code> (noch nicht auf npm — Installation aus dem Quellcode) &middot; Getestet mit DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Aktuelles Plugin-Release: <code>0.1.0-rc.1</code> &middot; Getestet mit DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@ Die Schaltflächen der Seitenleiste (Anwenden, Zurücksetzen, Bauen, Exportieren
 
 ## In DSH installieren
 
-Das Paket ist noch nicht auf npm. Baue es aus dem Quellcode und füge das Tarball einem Profil hinzu:
+Installiere es von npm in ein DSH-Profil:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

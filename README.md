@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Package: <code>@zseven-w/dsh-game-studio</code> &middot; Current plugin release: <code>0.1.0-rc.1</code> (not on npm yet — install from source) &middot; Tested with DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Package: <code>@zseven-w/dsh-game-studio</code> &middot; Current plugin release: <code>0.1.0-rc.1</code> &middot; Tested with DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@ The sidebar's buttons (apply, revert, build, export, restore, share) call the sa
 
 ## Install into DSH
 
-The package is not on npm yet. Build it from source and add the tarball to a profile:
+Install from npm into a DSH profile:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>套件：<code>@zseven-w/dsh-game-studio</code> &middot; 目前的外掛版本：<code>0.1.0-rc.1</code>（尚未上架 npm——請從原始碼安裝）&middot; 已在 DSH <code>0.2.1-rc.5</code> 下測試</sub>
+  <sub>套件：<code>@zseven-w/dsh-game-studio</code> &middot; 目前的外掛版本：<code>0.1.0-rc.1</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 下測試</sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## 安裝到 DSH
 
-此套件尚未上架 npm。請從原始碼建置，並將 tarball 加入某個 profile：
+從 npm 安裝到 DSH profile：
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

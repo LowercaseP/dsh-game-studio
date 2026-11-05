@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>पैकेज: <code>@zseven-w/dsh-game-studio</code> &middot; वर्तमान प्लगइन रिलीज़: <code>0.1.0-rc.1</code> (अभी npm पर उपलब्ध नहीं — सोर्स से इंस्टॉल करें) &middot; DSH <code>0.2.1-rc.5</code> के साथ परीक्षित</sub>
+  <sub>पैकेज: <code>@zseven-w/dsh-game-studio</code> &middot; वर्तमान प्लगइन रिलीज़: <code>0.1.0-rc.1</code> &middot; DSH <code>0.2.1-rc.5</code> के साथ परीक्षित</sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## DSH में इंस्टॉल करें
 
-यह पैकेज अभी npm पर उपलब्ध नहीं है। इसे सोर्स से बिल्ड करें और टारबॉल को किसी प्रोफ़ाइल में जोड़ें:
+npm से किसी DSH प्रोफ़ाइल में इंस्टॉल करें:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

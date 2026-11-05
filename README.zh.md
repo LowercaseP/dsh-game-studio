@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>包名：<code>@zseven-w/dsh-game-studio</code> &middot; 当前插件版本：<code>0.1.0-rc.1</code>（尚未发布到 npm，请从源码安装）&middot; 已在 DSH <code>0.2.1-rc.5</code> 上测试</sub>
+  <sub>包名：<code>@zseven-w/dsh-game-studio</code> &middot; 当前插件版本：<code>0.1.0-rc.1</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 上测试</sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## 安装到 DSH
 
-本插件尚未发布到 npm，请从源码构建并把打包文件加入 profile：
+从 npm 安装到 DSH profile：
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

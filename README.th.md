@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>แพ็กเกจ: <code>@zseven-w/dsh-game-studio</code> &middot; เวอร์ชันปลั๊กอินปัจจุบัน: <code>0.1.0-rc.1</code> (ยังไม่มีบน npm — ติดตั้งจากซอร์สโค้ด) &middot; ทดสอบกับ DSH <code>0.2.1-rc.5</code></sub>
+  <sub>แพ็กเกจ: <code>@zseven-w/dsh-game-studio</code> &middot; เวอร์ชันปลั๊กอินปัจจุบัน: <code>0.1.0-rc.1</code> &middot; ทดสอบกับ DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@
 
 ## การติดตั้งลงใน DSH
 
-แพ็กเกจนี้ยังไม่ได้เผยแพร่บน npm ให้บิลด์จากซอร์สโค้ดและเพิ่มไฟล์ tarball เข้าไปในโปรไฟล์:
+ติดตั้งจาก npm ลงในโปรไฟล์ DSH:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

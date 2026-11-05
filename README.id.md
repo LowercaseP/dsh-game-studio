@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Rilis plugin saat ini: <code>0.1.0-rc.1</code> (belum ada di npm — instal dari kode sumber) &middot; Diuji dengan DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Rilis plugin saat ini: <code>0.1.0-rc.1</code> &middot; Diuji dengan DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@ Tombol-tombol di bilah sisi (terapkan, kembalikan, bangun, ekspor, pulihkan, bag
 
 ## Instal ke DSH
 
-Paket ini belum tersedia di npm. Bangun dari kode sumber dan tambahkan tarball ke profil:
+Instal dari npm ke profil DSH:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 

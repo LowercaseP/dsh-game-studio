@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Güncel eklenti sürümü: <code>0.1.0-rc.1</code> (henüz npm'de değil — kaynaktan kurun) &middot; DSH <code>0.2.1-rc.5</code> ile test edildi</sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Güncel eklenti sürümü: <code>0.1.0-rc.1</code> &middot; DSH <code>0.2.1-rc.5</code> ile test edildi</sub>
 </p>
 
 <br />
@@ -90,15 +90,10 @@ Kenar çubuğunun düğmeleri (uygula, geri al, derle, dışa aktar, geri yükle
 
 ## DSH'ye kurulum
 
-Paket henüz npm'de değildir. Kaynaktan derleyin ve tarball arşivini bir profile ekleyin:
+npm'den bir DSH profiline kurun:
 
 ```sh
-git clone https://github.com/ZSeven-W/dsh-game-studio.git
-cd dsh-game-studio
-npm ci
-npm run build
-npm pack
-dsh plugin --profile web add "$PWD/zseven-w-dsh-game-studio-0.1.0-rc.1.tgz"
+dsh plugin --profile web add @zseven-w/dsh-game-studio@latest
 dsh web
 ```
 
