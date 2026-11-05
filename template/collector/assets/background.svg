@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Top-down grass meadow tile. Opaque, seamless; details kept clear of edges. -->
+  <rect width="512" height="512" fill="#7fbf5a"/>
+  <!-- Soft mottling -->
+  <circle cx="80" cy="90" r="70" fill="#74b151" opacity="0.7"/>
+  <circle cx="430" cy="120" r="80" fill="#8ac866" opacity="0.6"/>
+  <circle cx="120" cy="420" r="90" fill="#8ac866" opacity="0.5"/>
+  <circle cx="400" cy="400" r="70" fill="#74b151" opacity="0.7"/>
+  <circle cx="256" cy="256" r="120" fill="#76b352" opacity="0.35"/>
+  <!-- Blades of grass -->
+  <g stroke="#5e9a41" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.85">
+    <path d="M90 160c8-14 6-26 0-34"/>
+    <path d="M150 340c10-16 8-30 0-40"/>
+    <path d="M360 190c8-14 6-26 0-34"/>
+    <path d="M300 420c10-16 8-30 0-40"/>
+    <path d="M420 300c8-14 6-26 0-34"/>
+    <path d="M190 240c8-14 6-26 0-34"/>
+    <path d="M330 330c8-14 6-26 0-34"/>
+  </g>
+  <!-- Pebbles -->
+  <ellipse cx="220" cy="140" rx="20" ry="14" fill="#b9c4b0" stroke="#8f9a88" stroke-width="6"/>
+  <ellipse cx="232" cy="146" rx="10" ry="7" fill="#cfd8c7" opacity="0.9"/>
+  <ellipse cx="350" cy="360" rx="16" ry="11" fill="#b9c4b0" stroke="#8f9a88" stroke-width="6"/>
+  <ellipse cx="300" cy="180" rx="12" ry="8" fill="#c4cdbc" stroke="#8f9a88" stroke-width="5"/>
+  <!-- Flower 1 -->
+  <g>
+    <line x1="150" y1="300" x2="150" y2="350" stroke="#3c7a2f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="134" cy="292" r="12" fill="#ffffff" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="166" cy="292" r="12" fill="#ffffff" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="150" cy="276" r="12" fill="#ffffff" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="150" cy="308" r="12" fill="#ffffff" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="150" cy="292" r="10" fill="#f2c14e" stroke="#2b1b12" stroke-width="5"/>
+  </g>
+  <!-- Flower 2 -->
+  <g>
+    <line x1="390" y1="250" x2="390" y2="294" stroke="#3c7a2f" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="376" cy="244" r="10" fill="#f7d9a8" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="404" cy="244" r="10" fill="#f7d9a8" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="390" cy="230" r="10" fill="#f7d9a8" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="390" cy="258" r="10" fill="#f7d9a8" stroke="#2b1b12" stroke-width="6"/>
+    <circle cx="390" cy="244" r="9" fill="#e85d3d" stroke="#2b1b12" stroke-width="5"/>
+  </g>
+  <!-- Flower 3 (small bud) -->
+  <g>
+    <line x1="260" y1="86" x2="260" y2="112" stroke="#3c7a2f" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="260" cy="80" r="9" fill="#ffffff" stroke="#2b1b12" stroke-width="5"/>
+    <circle cx="260" cy="80" r="4.5" fill="#f2c14e"/>
+  </g>
+</svg>

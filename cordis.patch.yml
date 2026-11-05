@@ -1,0 +1,6 @@
+# dsh-game-studio bundle patch: mounts the plugin into a profile layer stack.
+# Override `config` in your profile's cordis.patch.yml, e.g.
+#   config: { openaiModel: gpt-image-2.5-flare, openaiCredential: OPENAI_API_KEY }
+- insert:
+    - id: dsh-game-studio
+      name: '@zseven-w/dsh-game-studio'

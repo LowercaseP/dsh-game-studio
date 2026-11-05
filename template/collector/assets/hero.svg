@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Little round adventurer, facing the viewer. Flat cartoon, dark outline. -->
+  <!-- Ground shadow -->
+  <ellipse cx="128" cy="228" rx="58" ry="16" fill="#1f4d2e" opacity="0.35"/>
+  <!-- Backpack -->
+  <rect x="56" y="120" width="40" height="52" rx="12" fill="#e8a13c" stroke="#2b1b12" stroke-width="8"/>
+  <path d="M56 132h40" stroke="#2b1b12" stroke-width="6"/>
+  <!-- Legs -->
+  <rect x="86" y="168" width="26" height="44" rx="12" fill="#2f6b4f" stroke="#2b1b12" stroke-width="8"/>
+  <rect x="134" y="168" width="26" height="44" rx="12" fill="#2f6b4f" stroke="#2b1b12" stroke-width="8"/>
+  <!-- Boots -->
+  <rect x="78" y="198" width="42" height="22" rx="10" fill="#7a4a2b" stroke="#2b1b12" stroke-width="8"/>
+  <rect x="128" y="198" width="42" height="22" rx="10" fill="#7a4a2b" stroke="#2b1b12" stroke-width="8"/>
+  <!-- Body -->
+  <path d="M76 96c0-26 20-46 46-46h12c26 0 46 20 46 46v62c0 22-16 40-38 42h-28c-22-2-38-20-38-42z" fill="#e85d3d" stroke="#2b1b12" stroke-width="8"/>
+  <!-- Belt -->
+  <rect x="76" y="150" width="104" height="14" fill="#2b1b12"/>
+  <rect x="118" y="148" width="20" height="18" rx="4" fill="#f2c14e" stroke="#2b1b12" stroke-width="6"/>
+  <!-- Scarf knot -->
+  <path d="M96 98c8 8 20 12 32 12s24-4 32-12l-10 18c-6 6-16 8-22 8s-16-2-22-8z" fill="#3f8f5a" stroke="#2b1b12" stroke-width="7"/>
+  <!-- Arms -->
+  <rect x="44" y="108" width="30" height="54" rx="15" fill="#e85d3d" stroke="#2b1b12" stroke-width="8"/>
+  <rect x="182" y="108" width="30" height="54" rx="15" fill="#e85d3d" stroke="#2b1b12" stroke-width="8"/>
+  <circle cx="59" cy="170" r="14" fill="#f7d9a8" stroke="#2b1b12" stroke-width="8"/>
+  <circle cx="197" cy="170" r="14" fill="#f7d9a8" stroke="#2b1b12" stroke-width="8"/>
+  <!-- Head -->
+  <circle cx="128" cy="82" r="42" fill="#f7d9a8" stroke="#2b1b12" stroke-width="8"/>
+  <!-- Eyes -->
+  <ellipse cx="112" cy="78" rx="6" ry="8" fill="#2b1b12"/>
+  <ellipse cx="146" cy="78" rx="6" ry="8" fill="#2b1b12"/>
+  <circle cx="114" cy="75" r="2.4" fill="#ffffff"/>
+  <circle cx="148" cy="75" r="2.4" fill="#ffffff"/>
+  <!-- Cheeks -->
+  <circle cx="98" cy="92" r="7" fill="#f08a6e" opacity="0.8"/>
+  <circle cx="158" cy="92" r="7" fill="#f08a6e" opacity="0.8"/>
+  <!-- Mouth -->
+  <path d="M118 96c4 5 16 5 20 0" fill="none" stroke="#2b1b12" stroke-width="6" stroke-linecap="round"/>
+  <!-- Hat -->
+  <path d="M84 66c0-20 16-36 36-36h16c20 0 36 16 36 36v14H84z" fill="#3f8f5a" stroke="#2b1b12" stroke-width="8"/>
+  <rect x="78" y="72" width="100" height="16" rx="8" fill="#2f6b4f" stroke="#2b1b12" stroke-width="8"/>
+</svg>

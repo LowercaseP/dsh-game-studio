@@ -1,0 +1,106 @@
+{
+  "name": "@zseven-w/dsh-game-studio",
+  "version": "0.1.0-rc.1",
+  "description": "Game studio for DeepSeek Harness: describe a small game, play it in the right sidebar, and swap its art for your own generated assets.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ZSeven-W/dsh-game-studio.git"
+  },
+  "homepage": "https://github.com/ZSeven-W/dsh-game-studio#readme",
+  "bugs": {
+    "url": "https://github.com/ZSeven-W/dsh-game-studio/issues"
+  },
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./locale/*.json": "./locale/*.json",
+    "./icon": "./icon.svg",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "template/*/game.js",
+    "template/*/game.json",
+    "template/*/assets/*",
+    "locale/*.json",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md",
+    "README.*.md",
+    "LICENSE",
+    "THIRD_PARTY_NOTICES.md"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "game",
+    "gamedev"
+  ],
+  "engines": {
+    "node": ">=24.11.0"
+  },
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-locale",
+        "@deepseek-ai/dsh-client-ui-tool",
+        "@deepseek-ai/dsh-client-ui-sidebar-right"
+      ]
+    }
+  },
+  "dshHostRuntime": {
+    "server": {
+      "requiredServices": [
+        "tools",
+        "workingDirectory"
+      ],
+      "optionalServices": [
+        "commands",
+        "credentials"
+      ],
+      "requiredPackages": {
+        "@deepseek-ai/dsh-tools": "0.2.1-rc.5"
+      }
+    },
+    "client": {
+      "requiredServices": [
+        "slots",
+        "locale",
+        "remote",
+        "remote.workspaceFiles",
+        "remote.commands",
+        "sidebarRight",
+        "sidebarRightTabs"
+      ],
+      "requiredPackages": {
+        "react": "^18.2.0"
+      }
+    }
+  },
+  "dependencies": {
+    "playwright-core": "1.64.1",
+    "pngjs": "^7.0.0",
+    "undici": "^7.30.1"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "qrcode-generator": "2.0.4",
+    "three": "0.187.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

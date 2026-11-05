@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <link rel="icon" href="data:,">
+  <title>Lantern Meadow</title>
+  <style>
+    html, body {
+      margin: 0;
+      height: 100%;
+      overflow: hidden;
+      background: #000;
+    }
+    canvas {
+      display: block;
+      width: 100vw;
+      height: 100vh;
+      touch-action: none;
+      -webkit-tap-highlight-color: transparent;
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="game" tabindex="0"></canvas>
+  <script>
+    (function () {
+      var rules = {
+        "duration": 60,
+        "hearts": 3,
+        "heroSpeed": 320,
+        "enemySpeed": 120,
+        "enemySpeedGrowth": 3,
+        "enemySpawnEvery": 4,
+        "maxEnemies": 8,
+        "maxPickups": 5,
+        "heroSize": 76,
+        "enemySize": 68,
+        "pickupSize": 44,
+        "shield": { "enabled": false, "every": 3, "seconds": 4 }
+      };
+
+      var params = new URLSearchParams(window.location.search);
+      if (params.has('duration')) {
+        var n = Number(params.get('duration'));
+        if (isFinite(n) && n > 0) rules.duration = n;
+      }
+
+      window.GAME = {
+        title: 'Lantern Meadow',
+        rules: rules,
+        slots: { background: { tile: true } },
+        assets: {
+          hero: 'assets/hero.svg',
+          enemy: 'assets/enemy.svg',
+          pickup: 'assets/pickup.svg',
+          background: 'assets/background.svg'
+        }
+      };
+    })();
+  </script>
+  <script src="game.js"></script>
+</body>
+</html>
