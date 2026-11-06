@@ -41,7 +41,7 @@ Yêu cầu agent tạo một trò chơi bằng lời lẽ tự nhiên — "một
 | 🕰️ **Lịch sử phiên bản** | Mọi bản dựng làm thay đổi trò chơi đều được lưu lại; `game_studio_restore_version` khôi phục đồng thời cả mã, luật chơi và đồ họa. |
 | 📦 **Xuất một tệp duy nhất** | `game_studio_export` ghi ra một tệp HTML độc lập không cần kết nối mạng — mở được trên mọi trình duyệt hoặc đưa lên bất kỳ máy chủ tĩnh nào. |
 | 📱 **Thử ngay trên điện thoại** | `game_studio_share` mở một liên kết chỉ đọc tạm thời trên mạng cục bộ của bạn, kèm mã QR ở thanh bên. |
-| 🗂️ **Trò chơi của tôi** | Mở nút **+** ở thanh bên và chọn **Game Studio · Trò chơi của tôi**: mỗi trò chơi trong không gian làm việc là một thẻ kèm ảnh lần chơi thử gần nhất. Bấm là chơi, không cần agent, không tốn token. |
+| 🗂️ **Trò chơi của tôi** | Mở nút **+** ở thanh bên và chọn **Game Studio · My games**: mỗi trò chơi trong không gian làm việc là một thẻ kèm ảnh lần chơi thử gần nhất. Bấm là chơi, không cần agent, không tốn token. |
 
 ## Những trò chơi làm bằng nó
 

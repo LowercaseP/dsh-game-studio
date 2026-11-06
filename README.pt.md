@@ -41,7 +41,7 @@ Peça um jogo ao agente em palavras simples — "um jogo 3D: um panda-vermelho c
 | 🕰️ **Histórico de versões** | Cada build que alterou o jogo é salvo; `game_studio_restore_version` traz de volta código, regras e arte juntos. |
 | 📦 **Exportação em arquivo único** | `game_studio_export` grava um arquivo HTML autossuficiente sem acesso à rede — abra em qualquer navegador ou coloque em qualquer hospedagem estática. |
 | 📱 **Teste no seu celular** | `game_studio_share` abre um link temporário somente leitura na sua rede local, com um QR code na barra lateral. |
-| 🗂️ **Meus jogos** | Abra o **+** da barra lateral e escolha **Game Studio · Meus jogos**: cada jogo do espaço de trabalho aparece como um cartão com a imagem do último teste. Um clique para jogar, sem agente e sem tokens. |
+| 🗂️ **Meus jogos** | Abra o **+** da barra lateral e escolha **Game Studio · My games**: cada jogo do espaço de trabalho aparece como um cartão com a imagem do último teste. Um clique para jogar, sem agente e sem tokens. |
 
 ## Jogos feitos com ele
 

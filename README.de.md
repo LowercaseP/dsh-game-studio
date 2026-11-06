@@ -41,7 +41,7 @@ Bitte den Agenten in einfachen Worten um ein Spiel — „ein 3D-Spiel: ein rote
 | 🕰️ **Versionsverlauf** | Jeder Build, der das Spiel verändert hat, wird gespeichert; `game_studio_restore_version` bringt Code, Regeln und Grafiken gemeinsam zurück. |
 | 📦 **Ein-Datei-Export** | `game_studio_export` schreibt eine in sich geschlossene HTML-Datei ohne Netzwerkzugriff — öffne sie in einem beliebigen Browser oder lade sie auf einen beliebigen statischen Host. |
 | 📱 **Probiere es auf deinem Telefon** | `game_studio_share` öffnet einen temporären, schreibgeschützten Link in deinem lokalen Netzwerk, mit QR-Code in der Seitenleiste. |
-| 🗂️ **Meine Spiele** | Über das **+** der Seitenleiste **Game Studio · Meine Spiele** wählen: jedes Spiel im Arbeitsbereich als Karte mit dem Bild des letzten Testlaufs. Ein Klick zum Spielen – ohne Agent, ohne Tokens. |
+| 🗂️ **Meine Spiele** | Über das **+** der Seitenleiste **Game Studio · My games** wählen: jedes Spiel im Arbeitsbereich als Karte mit dem Bild des letzten Testlaufs. Ein Klick zum Spielen – ohne Agent, ohne Tokens. |
 
 ## Damit gebaute Spiele
 

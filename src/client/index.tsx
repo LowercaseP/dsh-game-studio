@@ -364,33 +364,44 @@ type ListDir = (sessionId: string, path: string, signal: AbortSignal) => Promise
 interface ShelfInjected { shelfSession: string; readBytes: ReadBytes; listDir: ListDir }
 
 const shelfStyle: Record<string, CSSProperties> = {
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(150px, 1fr))', gap: 10, padding: 10, overflow: 'auto', minHeight: 0, alignContent: 'start' },
-  card: { font: 'inherit', textAlign: 'left', display: 'flex', flexDirection: 'column', gap: 0, padding: 0, borderRadius: 10, border: `1px solid ${tok.border}`, background: 'transparent', color: 'inherit', cursor: 'pointer', overflow: 'hidden' },
-  cover: { width: '100%', aspectRatio: '16 / 10', objectFit: 'cover', display: 'block', background: tok.layer },
-  coverContain: { width: '100%', aspectRatio: '16 / 10', objectFit: 'contain', display: 'block', background: tok.layer },
-  body: { padding: '6px 8px 8px', display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 },
-  name: { fontWeight: 600, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
+  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(168px, 1fr))', gap: 8, padding: 10, overflow: 'auto', minHeight: 0, alignContent: 'start' },
+  tile: { position: 'relative', display: 'block', width: '100%', aspectRatio: '4 / 3', padding: 0, border: 0, borderRadius: 10, overflow: 'hidden', cursor: 'pointer', font: 'inherit', textAlign: 'left', color: '#fff', background: '#1d1f24' },
+  // Character art (no playtest yet) sits whole on a soft backdrop above the caption.
+  art: { position: 'absolute', inset: '8% 12% 30%', width: '76%', height: '62%', objectFit: 'contain' },
+  artBackdrop: { position: 'absolute', inset: 0, background: 'radial-gradient(circle at 50% 40%, #3a3f4b 0%, #1d1f24 75%)' },
+  shot: { position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' },
+  caption: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: '28px 10px 8px', background: 'linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 100%)', display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 },
+  name: { fontWeight: 600, fontSize: 14, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textShadow: '0 1px 2px rgba(0,0,0,.5)' },
+  meta: { fontSize: 11, lineHeight: 1.3, color: 'rgba(255,255,255,.72)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
 }
+
+/** Hover and focus feedback the inline styles cannot express. */
+const SHELF_CSS = `
+[data-view="shelf"] .dgs-tile img { transition: transform .25s ease; }
+[data-view="shelf"] .dgs-tile:hover img, [data-view="shelf"] .dgs-tile:focus-visible img { transform: scale(1.05); }
+[data-view="shelf"] .dgs-tile:focus-visible { outline: 2px solid var(--dsw-alias-interactive-border-focus, #4c8bf5); outline-offset: 2px; }
+`
 
 function when(iso: string): string {
   const date = new Date(iso)
   if (Number.isNaN(date.getTime())) return ''
-  return date.toLocaleString(undefined, { month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' })
+  return date.toLocaleDateString(undefined, { month: 'short', day: 'numeric' })
 }
 
 function ShelfCard({ game, sessionId, readBytes, t, open }: { game: ShelfGame; sessionId: string; readBytes: ReadBytes; t: T; open: (game: ShelfGame) => void }) {
   const url = useFileUrl(readBytes, sessionId, game.cover, game.updatedAt)
-  // Playtest pictures fill the frame; a character picture is shown whole.
+  // Playtest pictures fill the tile; a character picture is shown whole.
   const screenshot = game.cover !== undefined && /\.jpe?g$/iu.test(game.cover)
   const meta = [game.dimension === '3d' ? '3D' : game.dimension === '2d' ? '2D' : '',
     game.built ? '' : t('shelf.notBuilt'),
     game.versions > 0 ? t('shelf.versions', { count: String(game.versions) }) : '',
     when(game.updatedAt)].filter(Boolean).join(' · ')
-  return <button type="button" style={shelfStyle.card} onClick={() => { open(game) }} title={t('shelf.play', { title: game.title })} data-project={game.project}>
-    {url ? <img src={url} alt="" style={screenshot ? shelfStyle.cover : shelfStyle.coverContain} /> : <div style={shelfStyle.cover} />}
-    <div style={shelfStyle.body}>
+  return <button type="button" className="dgs-tile" style={shelfStyle.tile} onClick={() => { open(game) }} title={t('shelf.play', { title: game.title })} aria-label={t('shelf.play', { title: game.title })} data-project={game.project}>
+    {!screenshot && <div style={shelfStyle.artBackdrop} />}
+    {url && <img src={url} alt="" style={screenshot ? shelfStyle.shot : shelfStyle.art} />}
+    <div style={shelfStyle.caption}>
       <span style={shelfStyle.name}>{game.title}</span>
-      <span style={s.small}>{meta}</span>
+      <span style={shelfStyle.meta}>{meta}</span>
     </div>
   </button>
 }
@@ -425,6 +436,7 @@ function ShelfTab(props: any): ReactNode {
   }, [tab, sessionId])
 
   return <div style={s.root} data-plugin="dsh-game-studio" data-view="shelf">
+    <style>{SHELF_CSS}</style>
     <div style={s.bar}>
       <span style={s.title}>{t('shelf.title')}</span>
       {scan && <span style={s.small}>{t('shelf.count', { count: String(scan.games.length) })}</span>}

@@ -41,7 +41,7 @@ Ajandan günlük dille bir oyun isteyin — "3D bir oyun: kırmızı bir panda o
 | 🕰️ **Sürüm geçmişi** | Oyunu değiştiren her derleme kaydedilir; `game_studio_restore_version` kodu, kuralları ve görselleri birlikte geri getirir. |
 | 📦 **Tek dosya dışa aktarma** | `game_studio_export` ağ erişimi olmayan, bağımsız bir HTML dosyası yazar — istediğiniz tarayıcıda açın veya herhangi bir statik barındırma hizmetine koyun. |
 | 📱 **Telefonunuzda deneyin** | `game_studio_share` kenar çubuğunda bir QR koduyla yerel ağınızda geçici, salt okunur bir bağlantı açar. |
-| 🗂️ **Oyunlarım** | Kenar çubuğundaki **+** ile **Game Studio · Oyunlarım**'ı seçin: çalışma alanındaki her oyun, son test görüntüsüyle bir kart olarak listelenir. Tıklayıp oynayın; agent da token da gerekmez. |
+| 🗂️ **Oyunlarım** | Kenar çubuğundaki **+** ile **Game Studio · My games**'ı seçin: çalışma alanındaki her oyun, son test görüntüsüyle bir kart olarak listelenir. Tıklayıp oynayın; agent da token da gerekmez. |
 
 ## Onunla yapılan oyunlar
 
