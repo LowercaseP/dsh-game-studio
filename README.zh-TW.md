@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>套件：<code>@zseven-w/dsh-game-studio</code> &middot; 目前的外掛版本：<code>0.1.0-rc.2</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 下測試</sub>
+  <sub>套件：<code>@zseven-w/dsh-game-studio</code> &middot; 目前的外掛版本：<code>0.1.0-rc.3</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 下測試</sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@
 | 🕰️ **版本歷史** | 每個改變遊戲的建置都會被保存；`game_studio_restore_version` 會把程式碼、規則與美術圖一起帶回來。 |
 | 📦 **單檔匯出** | `game_studio_export` 會寫出一個自包含、不需網路的 HTML 檔案——用任何瀏覽器開啟，或放到任何靜態網頁空間。 |
 | 📱 **在手機上試玩** | `game_studio_share` 會在你的區域網路上開啟一條臨時的唯讀連結，並在側邊欄顯示 QR Code。 |
-| 🗂️ **遊戲牆** | 點右欄的 **+**，選 **游戏工坊 · 游戏墙**（介面為簡體中文或英文 **Game Studio · My games**）：工作區裡做過的遊戲鋪滿一面牆，封面是最近一次試玩的畫面。點一下就能玩，不經過 agent，也不花 token。 |
+| 🗂️ **遊戲牆** | 點右欄的 **+**，選 **游戏工坊 · 游戏墙**（介面為簡體中文或英文 **Game Studio · My games**）：工作區裡做過的遊戲鋪滿一面牆，封面是最近一次試玩的畫面，可按 2D/3D 篩選，按最近修改、版本數或名稱排序。點一下就能玩，不經過 agent，也不花 token。**导出游戏墙**（Export wall）會把牆上的遊戲打包成一個離線網頁，傳給朋友就能玩。 |
 
 ## 用它做出來的遊戲
 
@@ -84,6 +84,8 @@
 | `game_studio_restore_version` | 回復整個遊戲的較早版本。 |
 | `game_studio_export` | 匯出一個自包含的離線 HTML 檔案。 |
 | `game_studio_share` | 在區域網路上開啟（或關閉）一條臨時的唯讀連結，讓手機可以遊玩這款遊戲。 |
+| `game_studio_list` | 列出工作區裡的遊戲（標題、2D/3D、是否已建置、版本數），agent 能按名字找到「那個企鵝遊戲」。 |
+| `game_studio_export_wall` | 匯出遊戲牆：一個離線 HTML 頁面，每個已建置的遊戲一格，點格子就能玩。 |
 
 側邊欄的按鈕（套用、還原、建置、匯出、回復、分享）透過 `/game-studio` 指令呼叫相同的操作。
 

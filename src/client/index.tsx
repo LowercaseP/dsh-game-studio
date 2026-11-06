@@ -6,7 +6,7 @@
  */
 import { useCallback, useEffect, useMemo, useRef, useState, type CSSProperties, type ReactNode } from 'react'
 import { en, NS, zh, type Key } from './locales.ts'
-import { scanShelf, type Listing, type ShelfGame } from './shelf.ts'
+import { dimensionCounts, scanShelf, viewGames, type Listing, type ShelfFilter, type ShelfGame, type ShelfSort } from './shelf.ts'
 
 const ID = '@zseven-w/dsh-game-studio'
 const KIND = 'game-studio'
@@ -361,10 +361,12 @@ function JobLine({ job, t }: { job: JobRecord; t: T }): ReactNode {
 // ---------------------------------------------------------------- shelf ("My games")
 
 type ListDir = (sessionId: string, path: string, signal: AbortSignal) => Promise<Listing>
-interface ShelfInjected { shelfSession: string; readBytes: ReadBytes; listDir: ListDir }
+interface ShelfInjected { shelfSession: string; readBytes: ReadBytes; listDir: ListDir; runCommand: RunCommand }
 
 const shelfStyle: Record<string, CSSProperties> = {
-  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(168px, 1fr))', gap: 8, padding: 10, overflow: 'auto', minHeight: 0, alignContent: 'start' },
+  // Scrolling lives on this wrapper: a height-capped grid would squeeze its rows below the tiles' aspect-ratio height.
+  scroll: { flex: '1 1 auto', minHeight: 0, overflow: 'auto' },
+  grid: { display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(168px, 1fr))', gridAutoRows: 'max-content', gap: 8, padding: 10 },
   tile: { position: 'relative', display: 'block', width: '100%', aspectRatio: '4 / 3', padding: 0, border: 0, borderRadius: 10, overflow: 'hidden', cursor: 'pointer', font: 'inherit', textAlign: 'left', color: '#fff', background: '#1d1f24' },
   // Character art (no playtest yet) sits whole on a soft backdrop above the caption.
   art: { position: 'absolute', inset: '8% 12% 30%', width: '76%', height: '62%', objectFit: 'contain' },
@@ -373,6 +375,9 @@ const shelfStyle: Record<string, CSSProperties> = {
   caption: { position: 'absolute', left: 0, right: 0, bottom: 0, padding: '28px 10px 8px', background: 'linear-gradient(to top, rgba(0,0,0,.82) 0%, rgba(0,0,0,.55) 55%, rgba(0,0,0,0) 100%)', display: 'flex', flexDirection: 'column', gap: 2, minWidth: 0 },
   name: { fontWeight: 600, fontSize: 14, lineHeight: 1.3, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap', textShadow: '0 1px 2px rgba(0,0,0,.5)' },
   meta: { fontSize: 11, lineHeight: 1.3, color: 'rgba(255,255,255,.72)', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' },
+  controls: { display: 'flex', alignItems: 'center', gap: 6, padding: '8px 10px 0', flexWrap: 'wrap' },
+  chip: { font: 'inherit', fontSize: 12, padding: '3px 11px', borderRadius: 999, border: 0, cursor: 'pointer' },
+  sort: { font: 'inherit', fontSize: 12, padding: '2px 4px', border: 0, background: 'transparent', cursor: 'pointer' },
 }
 
 /** Hover and focus feedback the inline styles cannot express. */
@@ -380,6 +385,10 @@ const SHELF_CSS = `
 [data-view="shelf"] .dgs-tile img { transition: transform .25s ease; }
 [data-view="shelf"] .dgs-tile:hover img, [data-view="shelf"] .dgs-tile:focus-visible img { transform: scale(1.05); }
 [data-view="shelf"] .dgs-tile:focus-visible { outline: 2px solid var(--dsw-alias-interactive-border-focus, #4c8bf5); outline-offset: 2px; }
+[data-view="shelf"] .dgs-chip { background: var(--dsw-alias-bg-layer-1, rgba(128,128,128,.12)); color: var(--dsw-alias-label-primary, inherit); }
+[data-view="shelf"] .dgs-chip[aria-pressed="true"] { background: var(--dsw-alias-label-primary, #222); color: var(--dsw-alias-bg-base, #fff); font-weight: 600; }
+[data-view="shelf"] .dgs-sort { color: var(--dsw-alias-label-secondary, #888); }
+[data-view="shelf"] .dgs-sort[aria-pressed="true"] { color: var(--dsw-alias-label-primary, inherit); font-weight: 600; }
 `
 
 function when(iso: string): string {
@@ -407,13 +416,17 @@ function ShelfCard({ game, sessionId, readBytes, t, open }: { game: ShelfGame; s
 }
 
 function ShelfTab(props: any): ReactNode {
-  const { useTabInfo, t, shelfSession, readBytes, listDir, useSessions } = props as { useTabInfo: () => any; t: T; useSessions?: (select: (sessions: any) => unknown) => unknown } & ShelfInjected
+  const { useTabInfo, t, shelfSession, readBytes, listDir, runCommand, useSessions } = props as { useTabInfo: () => any; t: T; useSessions?: (select: (sessions: any) => unknown) => unknown } & ShelfInjected
   const { tab } = useTabInfo()
   const sessionId: string = shelfSession || props.sessionId
   const cwd = (useSessions ? useSessions(sessions => sessions?.byId?.[sessionId]?.cwd) : undefined) as string | undefined
   const [version, setVersion] = useState(0)
   const [scan, setScan] = useState<{ games: ShelfGame[]; partial: boolean }>()
   const visible = tab?.visible !== false
+  const [filter, setFilter] = useState<ShelfFilter>('all')
+  const [sort, setSort] = useState<ShelfSort>('recent')
+  const [busy, setBusy] = useState(false)
+  const [notice, setNotice] = useState<{ kind: 'error' | 'info'; text: string }>()
 
   useEffect(() => {
     const listener = () => { setVersion(value => value + 1) }
@@ -435,21 +448,61 @@ function ShelfTab(props: any): ReactNode {
     tab.actions.openResource(studioAddress(sessionId, game.project))
   }, [tab, sessionId])
 
+  const shown = useMemo(() => scan ? viewGames(scan.games, filter, sort) : [], [scan, filter, sort])
+  const counts = useMemo(() => dimensionCounts(scan?.games ?? []), [scan])
+
+  const exportWall = useCallback(async () => {
+    setBusy(true)
+    setNotice(undefined)
+    try {
+      // The page is written in the language the sidebar is shown in.
+      const lang = t('shelf.refresh') === '刷新' ? 'zh' : 'en'
+      const result = await runCommand(sessionId, `wall ${JSON.stringify({ projects: shown.map(game => game.project), lang })}`)
+      if (!result.ok) { setNotice({ kind: 'error', text: t('shelf.exportFailed', { message: result.text }) }); return }
+      const wall = JSON.parse(result.text) as { file: string; bytes: number; games: number; skipped: unknown[] }
+      const text = t('shelf.exported', { file: wall.file, count: String(wall.games), size: `${(wall.bytes / 1048576).toFixed(1)} MB` })
+      setNotice({ kind: 'info', text: wall.skipped.length > 0 ? `${text} ${t('shelf.exportSkipped', { count: String(wall.skipped.length) })}` : text })
+    } finally {
+      setBusy(false)
+    }
+  }, [runCommand, sessionId, shown, t])
+
+  const chip = (value: ShelfFilter, label: string) => <button key={value} type="button" className="dgs-chip" aria-pressed={filter === value}
+    style={shelfStyle.chip} onClick={() => { setFilter(value) }}>{label} {counts[value]}</button>
+  const order = (value: ShelfSort, label: string) => <button key={value} type="button" className="dgs-sort" aria-pressed={sort === value}
+    style={shelfStyle.sort} onClick={() => { setSort(value) }}>{label}</button>
+
   return <div style={s.root} data-plugin="dsh-game-studio" data-view="shelf">
     <style>{SHELF_CSS}</style>
     <div style={s.bar}>
       <span style={s.title}>{t('shelf.title')}</span>
-      {scan && <span style={s.small}>{t('shelf.count', { count: String(scan.games.length) })}</span>}
+      {scan && <span style={s.small}>{t('shelf.count', { count: String(shown.length) })}</span>}
       <button type="button" style={s.button} onClick={() => { setVersion(value => value + 1) }}>{t('shelf.refresh')}</button>
+      {scan && scan.games.length > 0 && <button type="button" style={s.button} disabled={busy || shown.length === 0} title={t('shelf.exportHint')}
+        onClick={() => { void exportWall() }}>{busy ? t('shelf.exporting') : t('shelf.export')}</button>}
     </div>
+    {notice && <div style={notice.kind === 'error' ? s.error : s.hint}>{notice.text}</div>}
     {!sessionId || !cwd ? <div style={s.hint}>{t('shelf.noSession')}</div>
       : scan === undefined ? <div style={s.hint}>{t('shelf.scanning')}</div>
         : <>
           {scan.partial && <div style={s.hint}>{t('shelf.partial')}</div>}
           {scan.games.length === 0 ? <div style={{ ...s.hint, borderBottom: 0 }}>{t('shelf.empty')}</div>
-            : <div style={shelfStyle.grid}>
-              {scan.games.map(game => <ShelfCard key={game.project} game={game} sessionId={sessionId} readBytes={readBytes} t={t} open={open} />)}
-            </div>}
+            : <>
+              <div style={shelfStyle.controls}>
+                {chip('all', t('shelf.all'))}
+                {counts['2d'] > 0 && chip('2d', '2D')}
+                {counts['3d'] > 0 && chip('3d', '3D')}
+                <span style={{ flex: 1 }} />
+                {order('recent', t('shelf.sortRecent'))}
+                {order('versions', t('shelf.sortVersions'))}
+                {order('name', t('shelf.sortName'))}
+              </div>
+              <div style={shelfStyle.scroll}>
+                <div style={shelfStyle.grid}>
+                  {shown.map(game => <ShelfCard key={game.project} game={game} sessionId={sessionId} readBytes={readBytes} t={t} open={open} />)}
+                </div>
+              </div>
+            </>}
         </>}
   </div>
 }
@@ -557,7 +610,7 @@ export function apply(ctx: any): void {
 
   ctx.effect(() => ctx.slots.inject('sidebar.right.pane.tab', () => ctx.slots.register({
     name: 'sidebar.right.pane.tab', key: SHELF_ID, locale: NS,
-    inject: (sessionId: string): ShelfInjected => ({ shelfSession: typeof sessionId === 'string' ? sessionId : '', readBytes, listDir }),
+    inject: (sessionId: string): ShelfInjected => ({ shelfSession: typeof sessionId === 'string' ? sessionId : '', readBytes, listDir, runCommand }),
   }, ShelfTab)), 'dsh-game-studio: shelf body')
 
   for (const tool of TOOLS) {

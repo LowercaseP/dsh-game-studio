@@ -142,3 +142,24 @@ export async function scanShelf(list: ListDir, read: ReadText, root: string, sig
   games.sort((a, b) => b.updatedAt.localeCompare(a.updatedAt) || a.title.localeCompare(b.title))
   return { games, partial: found.partial }
 }
+
+export type ShelfFilter = 'all' | '2d' | '3d'
+export type ShelfSort = 'recent' | 'versions' | 'name'
+
+const collator = new Intl.Collator(['zh-Hans-CN', 'en'], { numeric: true, sensitivity: 'base' })
+
+/** The games the wall shows for a filter and an order; the scan already gives most recent first. */
+export function viewGames(games: ShelfGame[], filter: ShelfFilter, sort: ShelfSort): ShelfGame[] {
+  const shown = games.filter(game => filter === 'all' || game.dimension === filter)
+  if (sort === 'versions') return [...shown].sort((a, b) => b.versions - a.versions || b.updatedAt.localeCompare(a.updatedAt))
+  if (sort === 'name') return [...shown].sort((a, b) => collator.compare(a.title, b.title))
+  return shown
+}
+
+export function dimensionCounts(games: ShelfGame[]): Record<ShelfFilter, number> {
+  return {
+    all: games.length,
+    '2d': games.filter(game => game.dimension === '2d').length,
+    '3d': games.filter(game => game.dimension === '3d').length,
+  }
+}

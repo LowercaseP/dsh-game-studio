@@ -1,6 +1,6 @@
 {
   "name": "@zseven-w/dsh-game-studio",
-  "version": "0.1.0-rc.2",
+  "version": "0.1.0-rc.3",
   "description": "Game studio for DeepSeek Harness: describe a small game, play it in the right sidebar, and swap its art for your own generated assets.",
   "license": "MIT",
   "repository": {

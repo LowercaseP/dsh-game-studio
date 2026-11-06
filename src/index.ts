@@ -18,6 +18,7 @@ import { loadReference, type ReferenceImage } from './reference.ts'
 import { startShare, stopAllShares, stopShare } from './share.ts'
 import { askToShare, askToSpend, spendNotice } from './spend.ts'
 import { listVersions, restoreFiles } from './versions.ts'
+import { exportWall, listGames, type WallLang } from './wall.ts'
 import { createProject, loadManifest, ORIENTATIONS, paths, TEMPLATES, unnamedSlots, type SlotRequest } from './project.ts'
 import { CODEX_EFFORTS, resolveCodex, type CodexEffort } from './providers/codex.ts'
 import { OPENAI_DEFAULT_MODEL, openaiGenerate } from './providers/openai.ts'
@@ -418,6 +419,52 @@ export function apply(ctx: any, config: Config = {}): void {
   }))
 
   ctx.tools.register(defineTool({
+    name: 'game_studio_list',
+    description: 'List the games in the working directory (every folder with game.json and .studio/, up to two levels down), '
+      + 'most recently changed first, with title, 2D/3D, whether it is built, and how many versions it has. '
+      + 'Use it to find the game the user means ("the penguin game") before editing it, instead of searching the folders yourself. '
+      + 'The user sees the same games on the Game wall in the sidebar (+ → Game Studio · My games).',
+    parameters: {},
+    output: { schema: json, render: (_args: any, value: any) => [{ type: 'text', text: JSON.stringify(value) }] },
+    async execute(_args: any, exec: any) {
+      const cwd = await projectDir(exec, '.')
+      const scan = await listGames(cwd, exec.signal)
+      return {
+        games: scan.games.map(game => ({
+          path: relative(cwd, game.project) || '.', title: game.title, dimension: game.dimension ?? 'unknown',
+          built: game.built, versions: game.versions, updatedAt: game.updatedAt,
+        })),
+        ...(scan.partial ? { note: 'The workspace is large; only part of it was searched. Ask the user for the folder if the game is missing.' } : {}),
+      }
+    },
+  }))
+
+  ctx.tools.register(defineTool({
+    name: 'game_studio_export_wall',
+    description: 'Export the game wall: one offline HTML page with a tile for every built game in the working directory (or the ones '
+      + 'listed), where clicking a tile plays that game full-window. Good for sending to friends or putting on a static host. '
+      + 'Written to export/<name>.html in the working directory. Games are not rebuilt; ones never built are left out and reported.',
+    parameters: {
+      games: { type: 'string', description: 'Optional JSON array of game folders (relative paths from game_studio_list) in display order. Default: every game, newest first.' },
+      name: { type: 'string', description: 'File name without extension. Default game-wall.' },
+      lang: { type: 'string', enum: ['zh', 'en'], description: 'Page language. Default: zh when the game titles are Chinese, else en.' },
+    },
+    output: { schema: json, render: (_args: any, value: any) => [{ type: 'text', text: JSON.stringify(value) }] },
+    async execute(args: any, exec: any) {
+      const cwd = await projectDir(exec, '.')
+      let projects: string[] | undefined
+      if (typeof args.games === 'string' && args.games.trim() !== '') {
+        let parsed: unknown
+        try { parsed = JSON.parse(args.games) } catch { throw new StudioError('games must be a JSON array of folder paths', 'BAD_GAMES') }
+        if (!Array.isArray(parsed) || !parsed.every(item => typeof item === 'string')) throw new StudioError('games must be a JSON array of folder paths', 'BAD_GAMES')
+        projects = parsed
+      }
+      const result = await exportWall({ root: cwd, projects, name: args.name, lang: args.lang as WallLang | undefined, signal: exec.signal })
+      return { ...result, file: relative(cwd, result.file) }
+    },
+  }))
+
+  ctx.tools.register(defineTool({
     name: 'game_studio_export',
     description: 'Export the game as one self-contained HTML file (no network, works offline, opens in any browser or on a static host) '
       + 'into the project\'s export/ folder.',
@@ -571,8 +618,8 @@ export function apply(ctx: any, config: Config = {}): void {
   ctx.inject(['commands'], (child: any) => {
     child.commands.register({
       name: 'game-studio',
-      description: 'Game Studio sidebar actions (apply, revert, build, export, restore, share, unshare)',
-      input: { hint: '<apply|revert|build|export|restore|share|unshare> {"project": "...", ...}' },
+      description: 'Game Studio sidebar actions (apply, revert, build, export, restore, share, unshare, wall)',
+      input: { hint: '<apply|revert|build|export|restore|share|unshare|wall> {"project": "...", ...}' },
       async handler({ agent, rawInput }: any) {
         try {
           // The Harness passes everything after `/game-studio`, leading whitespace included.
@@ -581,6 +628,12 @@ export function apply(ctx: any, config: Config = {}): void {
           const action = space < 0 ? input : input.slice(0, space)
           const payload = space < 0 ? {} : JSON.parse(input.slice(space + 1))
           const cwd = await ctx.workingDirectory.ensure(agent)
+          if (action === 'wall') {
+            const projects = Array.isArray(payload.projects) ? payload.projects.filter((item: unknown) => typeof item === 'string') : undefined
+            const lang = payload.lang === 'zh' || payload.lang === 'en' ? payload.lang : undefined
+            const wall = await exportWall({ root: cwd, projects, lang })
+            return { kind: 'success', text: JSON.stringify(wall) }
+          }
           const dir = resolveInside(cwd, String(payload.project ?? ''))
           let result: unknown
           if (action === 'apply') result = await applyCandidate(dir, String(payload.slot), String(payload.candidate))

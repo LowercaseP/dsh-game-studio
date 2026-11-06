@@ -61,6 +61,16 @@ export const zh = {
   'shelf.notBuilt': '还没构建',
   'shelf.versions': '{count} 个版本',
   'shelf.play': '打开《{title}》',
+  'shelf.all': '全部',
+  'shelf.sortRecent': '最近修改',
+  'shelf.sortVersions': '版本最多',
+  'shelf.sortName': '名称',
+  'shelf.export': '导出游戏墙',
+  'shelf.exportHint': '把墙上现在显示的游戏打包成一个离线网页，点哪个玩哪个，可以发给朋友',
+  'shelf.exporting': '正在导出…',
+  'shelf.exported': '已导出：{file}（{count} 款 · {size}）',
+  'shelf.exportSkipped': '另有 {count} 款还没构建，没放进去。',
+  'shelf.exportFailed': '导出失败：{message}',
 }
 
 export const en: typeof zh = {
@@ -123,6 +133,16 @@ export const en: typeof zh = {
   'shelf.notBuilt': 'Not built yet',
   'shelf.versions': '{count} versions',
   'shelf.play': 'Open "{title}"',
+  'shelf.all': 'All',
+  'shelf.sortRecent': 'Recent',
+  'shelf.sortVersions': 'Most versions',
+  'shelf.sortName': 'Name',
+  'shelf.export': 'Export wall',
+  'shelf.exportHint': 'Pack the games shown here into one offline web page where any tile can be played; send it to friends',
+  'shelf.exporting': 'Exporting…',
+  'shelf.exported': 'Exported: {file} ({count} games · {size})',
+  'shelf.exportSkipped': '{count} more were never built and were left out.',
+  'shelf.exportFailed': 'Export failed: {message}',
 }
 
 export type Key = keyof typeof zh

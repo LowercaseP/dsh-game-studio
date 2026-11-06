@@ -50,6 +50,14 @@ async function runtimeScripts(manifest: GameManifest): Promise<string[]> {
   return scripts
 }
 
+/**
+ * The exact `<script>` element a build inlines for a runtime, so the game wall
+ * can keep one shared copy instead of one per 3D game.
+ */
+export async function runtimeTag(id: RuntimeId): Promise<string> {
+  return `<script>${inlineSafe(await readFile(RUNTIME_FILES[id], 'utf8'))}</script>`
+}
+
 /** Keep inline JSON and code from closing the script element early. */
 function inlineSafe(text: string): string {
   return text.replace(/<\/(script)/giu, '<\\/$1').replace(/<!--/gu, '<\\!--')

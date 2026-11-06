@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Rilis plugin saat ini: <code>0.1.0-rc.2</code> &middot; Diuji dengan DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Rilis plugin saat ini: <code>0.1.0-rc.3</code> &middot; Diuji dengan DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Mintalah sebuah game kepada agen dengan kata-kata sederhana — "game 3D: seekor
 | 🕰️ **Riwayat versi** | Setiap build yang mengubah game akan disimpan; `game_studio_restore_version` mengembalikan kode, aturan, dan seni secara bersamaan. |
 | 📦 **Ekspor satu file** | `game_studio_export` menulis file HTML mandiri tanpa akses jaringan — buka di browser apa pun atau unggah ke layanan hosting statis mana pun. |
 | 📱 **Coba di ponsel Anda** | `game_studio_share` membuka tautan baca-saja sementara di jaringan lokal Anda, lengkap dengan kode QR di bilah sisi. |
-| 🗂️ **Game saya** | Buka **+** di bilah samping dan pilih **Game Studio · My games**: setiap game di ruang kerja tampil sebagai kartu dengan gambar uji main terakhir. Klik untuk bermain, tanpa agent dan tanpa token. |
+| 🗂️ **Game saya** | Buka **+** di bilah samping dan pilih **Game Studio · My games**: setiap game di ruang kerja tampil sebagai ubin dengan gambar uji main terakhir, bisa disaring 2D/3D dan diurutkan menurut waktu, jumlah versi, atau nama. Klik untuk bermain, tanpa agent dan tanpa token. **Export wall** mengemas game yang tampil menjadi satu halaman offline untuk dikirim ke teman. |
 
 ## Game yang dibuat dengannya
 
@@ -84,6 +84,8 @@ Diukur pada DSH nyata dengan DeepSeek-V4.1-Flash, setiap game dibuat dari satu k
 | `game_studio_restore_version` | Memulihkan versi sebelumnya dari keseluruhan game. |
 | `game_studio_export` | Mengekspor satu file HTML mandiri yang dapat dijalankan secara offline. |
 | `game_studio_share` | Membuka (atau menutup) tautan baca-saja sementara di jaringan lokal agar ponsel dapat memainkan game tersebut. |
+| `game_studio_list` | Mendaftar game di ruang kerja beserta judul, 2D/3D, status build, dan jumlah versi, agar agent menemukan "game penguin itu" dari namanya. |
+| `game_studio_export_wall` | Mengekspor dinding game: satu halaman HTML offline dengan satu ubin per game yang sudah di-build; klik ubin untuk bermain. |
 
 Tombol-tombol di bilah sisi (terapkan, kembalikan, bangun, ekspor, pulihkan, bagikan) memanggil operasi yang sama melalui perintah `/game-studio`.
 

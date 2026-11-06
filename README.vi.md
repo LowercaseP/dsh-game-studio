@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Gói: <code>@zseven-w/dsh-game-studio</code> &middot; Bản phát hành plugin hiện tại: <code>0.1.0-rc.2</code> &middot; Đã thử nghiệm với DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Gói: <code>@zseven-w/dsh-game-studio</code> &middot; Bản phát hành plugin hiện tại: <code>0.1.0-rc.3</code> &middot; Đã thử nghiệm với DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Yêu cầu agent tạo một trò chơi bằng lời lẽ tự nhiên — "một
 | 🕰️ **Lịch sử phiên bản** | Mọi bản dựng làm thay đổi trò chơi đều được lưu lại; `game_studio_restore_version` khôi phục đồng thời cả mã, luật chơi và đồ họa. |
 | 📦 **Xuất một tệp duy nhất** | `game_studio_export` ghi ra một tệp HTML độc lập không cần kết nối mạng — mở được trên mọi trình duyệt hoặc đưa lên bất kỳ máy chủ tĩnh nào. |
 | 📱 **Thử ngay trên điện thoại** | `game_studio_share` mở một liên kết chỉ đọc tạm thời trên mạng cục bộ của bạn, kèm mã QR ở thanh bên. |
-| 🗂️ **Trò chơi của tôi** | Mở nút **+** ở thanh bên và chọn **Game Studio · My games**: mỗi trò chơi trong không gian làm việc là một thẻ kèm ảnh lần chơi thử gần nhất. Bấm là chơi, không cần agent, không tốn token. |
+| 🗂️ **Trò chơi của tôi** | Mở nút **+** ở thanh bên và chọn **Game Studio · My games**: mỗi trò chơi trong không gian làm việc là một ô kèm ảnh lần chơi thử gần nhất, lọc theo 2D/3D và sắp xếp theo thời gian, số phiên bản hoặc tên. Bấm là chơi, không cần agent, không tốn token. **Export wall** gói các trò đang hiển thị thành một trang ngoại tuyến để gửi cho bạn bè. |
 
 ## Những trò chơi làm bằng nó
 
@@ -84,6 +84,8 @@ Bốn trò chơi từ các lần thử nghiệm. Mỗi trò bắt đầu từ m�
 | `game_studio_restore_version` | Khôi phục một phiên bản trước đó của toàn bộ trò chơi. |
 | `game_studio_export` | Xuất ra một tệp HTML độc lập, chạy ngoại tuyến. |
 | `game_studio_share` | Mở (hoặc đóng) một liên kết chỉ đọc tạm thời trên mạng cục bộ để điện thoại có thể chơi trò chơi. |
+| `game_studio_list` | Liệt kê các trò chơi trong không gian làm việc với tên, 2D/3D, trạng thái build và số phiên bản, để agent tìm "trò chim cánh cụt đó" theo tên. |
+| `game_studio_export_wall` | Xuất bức tường trò chơi: một trang HTML ngoại tuyến, mỗi trò đã build một ô; bấm vào ô để chơi. |
 
 Các nút ở thanh bên (áp dụng, hoàn tác, dựng, xuất, khôi phục, chia sẻ) cũng gọi cùng các thao tác này thông qua lệnh `/game-studio`.
 

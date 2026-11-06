@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>包名：<code>@zseven-w/dsh-game-studio</code> &middot; 当前插件版本：<code>0.1.0-rc.2</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 上测试</sub>
+  <sub>包名：<code>@zseven-w/dsh-game-studio</code> &middot; 当前插件版本：<code>0.1.0-rc.3</code> &middot; 已在 DSH <code>0.2.1-rc.5</code> 上测试</sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@
 | 🕰️ **版本历史** | 每次让游戏发生变化的构建都会保存；`game_studio_restore_version` 把代码、规则和美术一起恢复。 |
 | 📦 **单文件导出** | `game_studio_export` 生成一个不联网、自包含的 HTML 文件，用任何浏览器打开，或放到任意静态托管上。 |
 | 📱 **在手机上试玩** | `game_studio_share` 在本地网络上开一个临时只读链接，侧栏里会显示二维码。 |
-| 🗂️ **游戏墙** | 点右栏的 **+**，选 **游戏工坊 · 游戏墙**：工作区里做过的游戏铺满一面墙，封面是最近一次试玩的画面。点一下就能玩，不经过 agent，也不花 token。 |
+| 🗂️ **游戏墙** | 点右栏的 **+**，选 **游戏工坊 · 游戏墙**：工作区里做过的游戏铺满一面墙，封面是最近一次试玩的画面，可按 2D/3D 筛选，按最近修改、版本数或名称排序。点一下就能玩，不经过 agent，也不花 token。**导出游戏墙**会把墙上的游戏打包成一个离线网页，发给朋友就能玩。 |
 
 ## 用它做出来的游戏
 
@@ -84,6 +84,8 @@
 | `game_studio_restore_version` | 把整个游戏恢复到较早的版本。 |
 | `game_studio_export` | 导出一个自包含、可离线游玩的 HTML 文件。 |
 | `game_studio_share` | 在本地网络开启（或关闭）一个临时只读链接，让手机也能玩。 |
+| `game_studio_list` | 列出工作区里的游戏（标题、2D/3D、是否已构建、版本数），agent 能按名字找到「那个企鹅游戏」。 |
+| `game_studio_export_wall` | 导出游戏墙：一个离线 HTML 页面，每个已构建的游戏一个格子，点格子就能玩。 |
 
 侧栏上的按钮（应用、撤回、构建、导出、恢复、分享）通过 `/game-studio` 命令调用同样的操作。
 

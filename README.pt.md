@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Pacote: <code>@zseven-w/dsh-game-studio</code> &middot; Versão atual do plugin: <code>0.1.0-rc.2</code> &middot; Testado com DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Pacote: <code>@zseven-w/dsh-game-studio</code> &middot; Versão atual do plugin: <code>0.1.0-rc.3</code> &middot; Testado com DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Peça um jogo ao agente em palavras simples — "um jogo 3D: um panda-vermelho c
 | 🕰️ **Histórico de versões** | Cada build que alterou o jogo é salvo; `game_studio_restore_version` traz de volta código, regras e arte juntos. |
 | 📦 **Exportação em arquivo único** | `game_studio_export` grava um arquivo HTML autossuficiente sem acesso à rede — abra em qualquer navegador ou coloque em qualquer hospedagem estática. |
 | 📱 **Teste no seu celular** | `game_studio_share` abre um link temporário somente leitura na sua rede local, com um QR code na barra lateral. |
-| 🗂️ **Meus jogos** | Abra o **+** da barra lateral e escolha **Game Studio · My games**: cada jogo do espaço de trabalho aparece como um cartão com a imagem do último teste. Um clique para jogar, sem agente e sem tokens. |
+| 🗂️ **Meus jogos** | Abra o **+** da barra lateral e escolha **Game Studio · My games**: cada jogo do espaço de trabalho como um bloco com a imagem do último teste, com filtro 2D/3D e ordem por data, versões ou nome. Um clique para jogar, sem agente e sem tokens. **Export wall** junta os jogos exibidos numa única página offline para enviar aos amigos. |
 
 ## Jogos feitos com ele
 
@@ -84,6 +84,8 @@ Medido em um DSH real com DeepSeek-V4.1-Flash, cada jogo feito a partir de uma f
 | `game_studio_restore_version` | Restaura uma versão anterior do jogo inteiro. |
 | `game_studio_export` | Exporta um único arquivo HTML autossuficiente e offline. |
 | `game_studio_share` | Abre (ou fecha) um link temporário somente leitura na rede local para que um celular possa jogar o jogo. |
+| `game_studio_list` | Lista os jogos do espaço de trabalho com título, 2D/3D, estado do build e versões, para o agente achar "o jogo do pinguim" pelo nome. |
+| `game_studio_export_wall` | Exporta o mural de jogos: uma página HTML offline com um bloco por jogo compilado; clique num bloco para jogar. |
 
 Os botões da barra lateral (aplicar, reverter, construir, exportar, restaurar, compartilhar) chamam as mesmas operações por meio do comando `/game-studio`.
 

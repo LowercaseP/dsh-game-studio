@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paquet : <code>@zseven-w/dsh-game-studio</code> &middot; Version actuelle du plugin : <code>0.1.0-rc.2</code> &middot; Testé avec DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paquet : <code>@zseven-w/dsh-game-studio</code> &middot; Version actuelle du plugin : <code>0.1.0-rc.3</code> &middot; Testé avec DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Demandez un jeu à l'agent en mots simples — « un jeu 3D : un panda roux réc
 | 🕰️ **Historique des versions** | Chaque build qui a modifié le jeu est enregistré ; `game_studio_restore_version` restaure code, règles et illustrations ensemble. |
 | 📦 **Export en un seul fichier** | `game_studio_export` écrit un fichier HTML autonome sans accès réseau — ouvrez-le dans n'importe quel navigateur ou déposez-le sur n'importe quel hébergement statique. |
 | 📱 **Essayez-le sur votre téléphone** | `game_studio_share` ouvre un lien temporaire en lecture seule sur votre réseau local, avec un code QR dans la barre latérale. |
-| 🗂️ **Mes jeux** | Ouvrez le **+** de la barre latérale et choisissez **Game Studio · My games** : chaque jeu de l'espace de travail y apparaît en carte, avec l'image de son dernier test. Un clic pour jouer — sans agent, sans jetons. |
+| 🗂️ **Mes jeux** | Ouvrez le **+** de la barre latérale et choisissez **Game Studio · My games** : chaque jeu de l'espace de travail en vignette, avec l'image de son dernier test, filtrable 2D/3D et triable par date, versions ou nom. Un clic pour jouer — sans agent, sans jetons. **Export wall** réunit les jeux affichés dans une seule page hors ligne à envoyer à des amis. |
 
 ## Des jeux faits avec
 
@@ -84,6 +84,8 @@ Mesuré dans un vrai DSH avec DeepSeek-V4.1-Flash, chaque jeu créé à partir d
 | `game_studio_restore_version` | Restaure une version antérieure du jeu entier. |
 | `game_studio_export` | Exporte un seul fichier HTML autonome et hors ligne. |
 | `game_studio_share` | Ouvre (ou ferme) un lien temporaire en lecture seule sur le réseau local pour qu'un téléphone puisse jouer au jeu. |
+| `game_studio_list` | Liste les jeux de l'espace de travail avec titre, 2D/3D, état de build et versions, pour que l'agent trouve « le jeu du manchot » par son nom. |
+| `game_studio_export_wall` | Exporte le mur de jeux : une page HTML hors ligne avec une vignette par jeu construit ; un clic sur une vignette pour y jouer. |
 
 Les boutons de la barre latérale (appliquer, annuler, compiler, exporter, restaurer, partager) appellent les mêmes opérations via la commande `/game-studio`.
 

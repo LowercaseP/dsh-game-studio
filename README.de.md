@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Aktuelles Plugin-Release: <code>0.1.0-rc.2</code> &middot; Getestet mit DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Aktuelles Plugin-Release: <code>0.1.0-rc.3</code> &middot; Getestet mit DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Bitte den Agenten in einfachen Worten um ein Spiel — „ein 3D-Spiel: ein rote
 | 🕰️ **Versionsverlauf** | Jeder Build, der das Spiel verändert hat, wird gespeichert; `game_studio_restore_version` bringt Code, Regeln und Grafiken gemeinsam zurück. |
 | 📦 **Ein-Datei-Export** | `game_studio_export` schreibt eine in sich geschlossene HTML-Datei ohne Netzwerkzugriff — öffne sie in einem beliebigen Browser oder lade sie auf einen beliebigen statischen Host. |
 | 📱 **Probiere es auf deinem Telefon** | `game_studio_share` öffnet einen temporären, schreibgeschützten Link in deinem lokalen Netzwerk, mit QR-Code in der Seitenleiste. |
-| 🗂️ **Meine Spiele** | Über das **+** der Seitenleiste **Game Studio · My games** wählen: jedes Spiel im Arbeitsbereich als Karte mit dem Bild des letzten Testlaufs. Ein Klick zum Spielen – ohne Agent, ohne Tokens. |
+| 🗂️ **Meine Spiele** | Über das **+** der Seitenleiste **Game Studio · My games** wählen: jedes Spiel im Arbeitsbereich als Kachel mit dem Bild des letzten Testlaufs, filterbar nach 2D/3D und sortierbar nach Datum, Versionen oder Name. Ein Klick zum Spielen – ohne Agent, ohne Tokens. **Export wall** packt die angezeigten Spiele in eine Offline-Seite zum Weiterschicken. |
 
 ## Damit gebaute Spiele
 
@@ -84,6 +84,8 @@ Gemessen in einem echten DSH mit DeepSeek-V4.1-Flash, jedes Spiel aus einem Satz
 | `game_studio_restore_version` | Stellt eine frühere Version des gesamten Spiels wieder her. |
 | `game_studio_export` | Exportiert eine in sich geschlossene, offline HTML-Datei. |
 | `game_studio_share` | Öffnet (oder schließt) einen temporären, schreibgeschützten Link im lokalen Netzwerk, damit ein Telefon das Spiel spielen kann. |
+| `game_studio_list` | Listet die Spiele im Arbeitsbereich mit Titel, 2D/3D, Build-Stand und Versionen, damit der Agent „das Pinguin-Spiel“ beim Namen findet. |
+| `game_studio_export_wall` | Exportiert die Spielewand: eine Offline-HTML-Seite mit einer Kachel pro gebautem Spiel; ein Klick auf eine Kachel startet es. |
 
 Die Schaltflächen der Seitenleiste (Anwenden, Zurücksetzen, Bauen, Exportieren, Wiederherstellen, Teilen) rufen dieselben Operationen über den Befehl `/game-studio` auf.
 

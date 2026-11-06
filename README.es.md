@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paquete: <code>@zseven-w/dsh-game-studio</code> &middot; Versión actual del plugin: <code>0.1.0-rc.2</code> &middot; Probado con DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Paquete: <code>@zseven-w/dsh-game-studio</code> &middot; Versión actual del plugin: <code>0.1.0-rc.3</code> &middot; Probado con DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Pídele al agente un juego en palabras sencillas — «un juego 3D: un panda roj
 | 🕰️ **Historial de versiones** | Cada compilación que cambió el juego se guarda; `game_studio_restore_version` restaura juntos el código, las reglas y el arte. |
 | 📦 **Exportación en un solo archivo** | `game_studio_export` escribe un archivo HTML autosuficiente y sin acceso a la red — ábrelo en cualquier navegador o ponlo en cualquier servidor estático. |
 | 📱 **Pruébalo en tu teléfono** | `game_studio_share` abre un enlace temporal de solo lectura en tu red local, con un código QR en la barra lateral. |
-| 🗂️ **Mis juegos** | Abre el **+** de la barra lateral y elige **Game Studio · My games**: cada juego del espacio de trabajo aparece como una tarjeta con la imagen de su última prueba. Un clic para jugar, sin agente y sin tokens. |
+| 🗂️ **Mis juegos** | Abre el **+** de la barra lateral y elige **Game Studio · My games**: cada juego del espacio de trabajo como una tarjeta con la imagen de su última prueba, con filtro 2D/3D y orden por fecha, versiones o nombre. Un clic para jugar, sin agente y sin tokens. **Export wall** reúne los juegos mostrados en una sola página sin conexión para enviarla a tus amigos. |
 
 ## Juegos hechos con él
 
@@ -84,6 +84,8 @@ Medido en un DSH real con DeepSeek-V4.1-Flash, cada juego creado a partir de una
 | `game_studio_restore_version` | Restaura una versión anterior del juego completo. |
 | `game_studio_export` | Exporta un único archivo HTML autosuficiente y sin conexión. |
 | `game_studio_share` | Abre (o cierra) un enlace temporal de solo lectura en la red local para que un teléfono pueda jugar. |
+| `game_studio_list` | Lista los juegos del espacio de trabajo con título, 2D/3D, estado de compilación y versiones, para que el agente encuentre «el juego del pingüino» por su nombre. |
+| `game_studio_export_wall` | Exporta el muro de juegos: una página HTML sin conexión con una tarjeta por juego compilado; haz clic en una para jugar. |
 
 Los botones de la barra lateral (aplicar, revertir, compilar, exportar, restaurar, compartir) llaman a las mismas operaciones a través del comando `/game-studio`.
 

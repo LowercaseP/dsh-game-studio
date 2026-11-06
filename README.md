@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Package: <code>@zseven-w/dsh-game-studio</code> &middot; Current plugin release: <code>0.1.0-rc.2</code> &middot; Tested with DSH <code>0.2.1-rc.5</code></sub>
+  <sub>Package: <code>@zseven-w/dsh-game-studio</code> &middot; Current plugin release: <code>0.1.0-rc.3</code> &middot; Tested with DSH <code>0.2.1-rc.5</code></sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Ask the agent for a game in plain words — "a 3D game: a red panda collects bam
 | 🕰️ **Version history** | Every build that changed the game is saved; `game_studio_restore_version` brings back code, rules and art together. |
 | 📦 **One-file export** | `game_studio_export` writes a self-contained HTML file with no network access — open it in any browser or put it on any static host. |
 | 📱 **Try it on your phone** | `game_studio_share` opens a temporary read-only link on your local network, with a QR code in the sidebar. |
-| 🗂️ **My games** | Open the sidebar's **+** and pick **Game Studio · My games**: every game in the workspace as a card with its latest playtest picture. Click one to play it — no agent, no tokens. |
+| 🗂️ **My games** | Open the sidebar's **+** and pick **Game Studio · My games**: every game in the workspace as a tile with its latest playtest picture, filtered by 2D/3D and sorted by recency, versions or name. Click one to play it — no agent, no tokens. **Export wall** packs the games shown into one offline page to send to friends. |
 
 ## Games made with it
 
@@ -84,6 +84,8 @@ Measured in a real DSH with DeepSeek-V4.1-Flash, each game made from one sentenc
 | `game_studio_restore_version` | Restore an earlier version of the whole game. |
 | `game_studio_export` | Export one self-contained, offline HTML file. |
 | `game_studio_share` | Open (or close) a temporary read-only link on the local network so a phone can play the game. |
+| `game_studio_list` | List the games in the working directory with title, 2D/3D, build state and versions, so the agent finds "the penguin game" by name. |
+| `game_studio_export_wall` | Export the game wall: one offline HTML page with a tile per built game; click a tile to play it. |
 
 The sidebar's buttons (apply, revert, build, export, restore, share) call the same operations through the `/game-studio` command.
 

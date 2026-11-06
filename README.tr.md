@@ -14,7 +14,7 @@
 </p>
 
 <p align="center">
-  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Güncel eklenti sürümü: <code>0.1.0-rc.2</code> &middot; DSH <code>0.2.1-rc.5</code> ile test edildi</sub>
+  <sub>Paket: <code>@zseven-w/dsh-game-studio</code> &middot; Güncel eklenti sürümü: <code>0.1.0-rc.3</code> &middot; DSH <code>0.2.1-rc.5</code> ile test edildi</sub>
 </p>
 
 <br />
@@ -41,7 +41,7 @@ Ajandan günlük dille bir oyun isteyin — "3D bir oyun: kırmızı bir panda o
 | 🕰️ **Sürüm geçmişi** | Oyunu değiştiren her derleme kaydedilir; `game_studio_restore_version` kodu, kuralları ve görselleri birlikte geri getirir. |
 | 📦 **Tek dosya dışa aktarma** | `game_studio_export` ağ erişimi olmayan, bağımsız bir HTML dosyası yazar — istediğiniz tarayıcıda açın veya herhangi bir statik barındırma hizmetine koyun. |
 | 📱 **Telefonunuzda deneyin** | `game_studio_share` kenar çubuğunda bir QR koduyla yerel ağınızda geçici, salt okunur bir bağlantı açar. |
-| 🗂️ **Oyunlarım** | Kenar çubuğundaki **+** ile **Game Studio · My games**'ı seçin: çalışma alanındaki her oyun, son test görüntüsüyle bir kart olarak listelenir. Tıklayıp oynayın; agent da token da gerekmez. |
+| 🗂️ **Oyunlarım** | Kenar çubuğundaki **+** ile **Game Studio · My games**'i seçin: çalışma alanındaki her oyun son test görüntüsüyle bir kutucuk olarak listelenir; 2D/3D süzgeci ve tarih, sürüm ya da ada göre sıralama vardır. Tıklayıp oynayın; agent da token da gerekmez. **Export wall**, gösterilen oyunları arkadaşlarınıza gönderebileceğiniz tek bir çevrimdışı sayfada toplar. |
 
 ## Onunla yapılan oyunlar
 
@@ -84,6 +84,8 @@ Gerçek bir DSH içinde DeepSeek-V4.1-Flash ile ölçüldü; her oyun yeni bir o
 | `game_studio_restore_version` | Tüm oyunun daha önceki bir sürümünü geri yükler. |
 | `game_studio_export` | Tek bir bağımsız, çevrimdışı HTML dosyası dışa aktarır. |
 | `game_studio_share` | Bir telefonun oyunu oynayabilmesi için yerel ağda geçici, salt okunur bir bağlantı açar (veya kapatır). |
+| `game_studio_list` | Çalışma alanındaki oyunları başlık, 2D/3D, derleme durumu ve sürüm sayısıyla listeler; agent "o penguen oyununu" adından bulur. |
+| `game_studio_export_wall` | Oyun duvarını dışa aktarır: derlenmiş her oyun için bir kutucuk içeren çevrimdışı bir HTML sayfası; kutucuğa tıklayınca oyun açılır. |
 
 Kenar çubuğunun düğmeleri (uygula, geri al, derle, dışa aktar, geri yükle, paylaş) aynı işlemleri `/game-studio` komutu üzerinden çağırır.
 
