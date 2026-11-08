@@ -1,0 +1,18 @@
+{
+  "extraKnownMarketplaces": {
+    "hyperframes": {
+      "source": {
+        "source": "github",
+        "repo": "heygen-com/hyperframes",
+        "ref": "v0.9.23",
+        "sparsePaths": [
+          ".claude-plugin",
+          "skills"
+        ]
+      }
+    }
+  },
+  "enabledPlugins": {
+    "hyperframes@hyperframes": true
+  }
+}
