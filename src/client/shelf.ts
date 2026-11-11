@@ -121,7 +121,7 @@ export async function describeGame(list: ListDir, read: ReadText, project: strin
   return {
     project,
     title: title ?? project.split(/[\\/]/u).filter(Boolean).at(-1) ?? project,
-    dimension: template === 'voxel' ? '3d' : template === 'collector' ? '2d' : undefined,
+    dimension: template === 'voxel' ? '3d' : template === 'collector' || template === 'rune' ? '2d' : undefined,
     orientation,
     built: state?.build !== null && state?.build !== undefined,
     versions: versions.length,

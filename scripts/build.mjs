@@ -62,4 +62,32 @@ await build({
   logLevel: 'warning',
 })
 await writeFile(join(root, 'lib/vendor/three.LICENSE.txt'), await readFile(join(root, 'node_modules/three/LICENSE'), 'utf8'))
-console.log(`built lib/index.js, lib/client.js and lib/vendor/three.js (three ${three.version})`)
+// The Rune runtime is optional: it needs a Rust toolchain, so it is bundled only when
+// rune/build.sh has produced rune/dist. The wasm rides inside the script as base64.
+let runeNote = ''
+try {
+  const wasm = await readFile(join(root, 'rune/dist/app_bg.wasm'))
+  await build({
+    stdin: {
+      contents: "import init from './rune/dist/app.js'; window.RuneGame = { init };",
+      resolveDir: root, loader: 'js',
+    },
+    outfile: join(root, 'lib/vendor/rune.js'),
+    bundle: true,
+    minify: true,
+    platform: 'browser',
+    format: 'iife',
+    target: 'es2020',
+    legalComments: 'none',
+    // A classic script has no import.meta; Rune only reads it to locate its full font faces,
+    // which an offline build cannot fetch anyway (it keeps the embedded Latin cut).
+    define: { 'import.meta.url': 'document.baseURI' },
+    banner: { js: `/* Rune | MIT License | https://github.com/anomalyco/rune */\nwindow.RUNE_WASM=${JSON.stringify(wasm.toString('base64'))};` },
+    logLevel: 'error',
+  })
+  runeNote = ` and lib/vendor/rune.js (${(wasm.length / 1048576).toFixed(1)} MB wasm)`
+} catch (error) {
+  if (error?.code !== 'ENOENT') throw error
+  runeNote = '; skipped lib/vendor/rune.js (run rune/build.sh first for the rune template)'
+}
+console.log(`built lib/index.js, lib/client.js and lib/vendor/three.js (three ${three.version})${runeNote}`)

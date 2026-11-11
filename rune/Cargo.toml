@@ -1,0 +1,28 @@
+# The Rune game runtime for the "rune" template. Built to WebAssembly by
+# rune/build.sh; the studio inlines the result into each game's single HTML file.
+[package]
+name = "dsh-rune-game"
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# Rune is pre-release: pin a dev revision that builds (later ones at 6b03df6..57796d0 panic on web or fail to compile).
+rune = { git = "https://github.com/anomalyco/rune", rev = "3686e94ae09545fd5f2a61e22aabfbeba1cd896f" }
+serde_json = "1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+wasm-bindgen = "=0.2.129"
+
+[workspace]
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"

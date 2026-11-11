@@ -247,7 +247,9 @@ export function apply(ctx: any, config: Config = {}): void {
     name: 'game_studio_create',
     description: 'Create a playable small web game from a built-in template, build it, and show it in the Game Studio sidebar. '
       + 'Templates: "collector" (default) is a 60-second 2D top-down collect-and-dodge game; "voxel" is the same loop in a 3D voxel world '
-      + '(Three.js, WebGL), whose characters are voxel models until the user applies their own art, which then shows as camera-facing sprites. '
+      + '(Three.js, WebGL), whose characters are voxel models until the user applies their own art, which then shows as camera-facing sprites; '
+      + '"rune" is the same 2D loop drawn by the Rune GPU UI framework (Rust compiled to WebAssembly, needs a WebGPU browser, builds are about 13 MB) '
+      + 'with a "title" art slot on its start and end screens: its game.js is only a loader, so change it through rules in game.json and the art slots, not code. '
       + 'When you reshape the voxel models, edit the boxes listed in MODELS in game.js and keep MODELS and window.__renderSlots. '
       + RENDERS_CONTRACT + ' ' + GAME_STATE_CONTRACT + ' ' + EDIT_SLOT_FILES + ' '
       + 'The new folder contains game.json (title, art style, asset slots, rules; rules are free-form: add any key and read it in game.js '
@@ -257,7 +259,7 @@ export function apply(ctx: any, config: Config = {}): void {
       path: { ...projectParam, description: 'New, empty folder for the game, relative to the working directory.' },
       title: { type: 'string', required: true, description: 'Game title shown on the title screen.' },
       style: { type: 'string', description: 'Art direction shared by all generated assets, e.g. "watercolor storybook, warm palette".' },
-      template: { type: 'string', enum: TEMPLATES, description: 'Which template to start from. Default collector; use voxel when the user asks for 3D.' },
+      template: { type: 'string', enum: TEMPLATES, description: 'Which template to start from. Default collector; use voxel when the user asks for 3D, rune only when the user asks for Rune.' },
       orientation: { type: 'string', enum: ORIENTATIONS, description: 'How the game is held: portrait (default, phone upright) or landscape '
         + '(side-scrollers, wide tracks or boards). Playtests and the sidebar preview follow it; it is saved as "orientation" in game.json.' },
       slots: { type: 'json', description: 'The game\'s art slots, as the sidebar shows them and AI art is made for: an object by slot name. '

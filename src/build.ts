@@ -36,6 +36,8 @@ const STYLE = 'html,body{margin:0;height:100%;overflow:hidden;background:#000}'
 const RUNTIME_FILES: Record<RuntimeId, URL> = {
   // Built by scripts/build.mjs; resolves to <package>/lib/vendor from both src/ and lib/.
   three: new URL('../lib/vendor/three.js', import.meta.url),
+  // Rust + WebAssembly, built by rune/build.sh and bundled with its wasm inlined.
+  rune: new URL('../lib/vendor/rune.js', import.meta.url),
 }
 
 async function runtimeScripts(manifest: GameManifest): Promise<string[]> {
@@ -45,7 +47,10 @@ async function runtimeScripts(manifest: GameManifest): Promise<string[]> {
       throw new StudioError(`Unknown runtime "${id}" in game.json; available: ${RUNTIMES.join(', ')}`, 'BAD_MANIFEST')
     }
     try { scripts.push(await readFile(RUNTIME_FILES[id], 'utf8')) }
-    catch { throw new StudioError(`Runtime "${id}" is missing from this dsh-game-studio install`, 'MISSING_RUNTIME') }
+    catch {
+      const hint = id === 'rune' ? '; build it with rune/build.sh, then npm run build' : ''
+      throw new StudioError(`Runtime "${id}" is missing from this dsh-game-studio install${hint}`, 'MISSING_RUNTIME')
+    }
   }
   return scripts
 }
@@ -97,7 +102,8 @@ export async function renderHtml(dir: string, manifest: GameManifest): Promise<s
     '<!doctype html>',
     '<html lang="en"><head><meta charset="utf-8">',
     '<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">',
-    `<meta http-equiv="Content-Security-Policy" content="${CSP}">`,
+    // WebAssembly compiles under 'wasm-unsafe-eval' only; JS eval stays blocked.
+    `<meta http-equiv="Content-Security-Policy" content="${manifest.runtime?.includes('rune') ? CSP.replace("script-src 'unsafe-inline'", "script-src 'unsafe-inline' 'wasm-unsafe-eval'") : CSP}">`,
     `<title>${escapeHtml(manifest.title)}</title>`,
     `<style>${STYLE}</style></head><body><canvas id="game" tabindex="0"></canvas>`,
     ...runtimes.map(script => `<script>${inlineSafe(script)}</script>`),

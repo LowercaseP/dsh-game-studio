@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" width="256" height="256">
+  <!-- Grumpy spiky blob. Flat cartoon, dark outline. -->
+  <ellipse cx="128" cy="230" rx="62" ry="14" fill="#1f4d2e" opacity="0.35"/>
+  <!-- Spikes -->
+  <path d="M128 26l14 34-38 8z" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M74 52l30 20-30 24z" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M182 52l-30 20 30 24z" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M196 116l-30 6 12 30z" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8" stroke-linejoin="round"/>
+  <path d="M60 116l30 6-12 30z" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8" stroke-linejoin="round"/>
+  <!-- Body -->
+  <path d="M78 82c0-38 24-58 50-58s50 20 50 58c0 60-22 88-50 88s-50-28-50-88z" fill="#8a74d6" stroke="#2b1b12" stroke-width="8"/>
+  <!-- Belly -->
+  <ellipse cx="128" cy="150" rx="28" ry="22" fill="#c3b4f0" opacity="0.85"/>
+  <!-- Eyes -->
+  <path d="M96 104c8-10 16-10 22 0" fill="#ffffff" stroke="#2b1b12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M138 104c6-10 14-10 22 0" fill="#ffffff" stroke="#2b1b12" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="107" cy="112" r="6" fill="#2b1b12"/>
+  <circle cx="149" cy="112" r="6" fill="#2b1b12"/>
+  <!-- Angry brows -->
+  <path d="M94 90l20 6" stroke="#2b1b12" stroke-width="8" stroke-linecap="round"/>
+  <path d="M162 90l-20 6" stroke="#2b1b12" stroke-width="8" stroke-linecap="round"/>
+  <!-- Mouth -->
+  <path d="M112 136c12-10 22-10 32 0" fill="#2b1b12" stroke="#2b1b12" stroke-width="6" stroke-linecap="round"/>
+  <!-- Teeth -->
+  <path d="M118 136l5 9 5-9 5 9 5-9" fill="#ffffff" stroke="#2b1b12" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+  <!-- Feet -->
+  <ellipse cx="100" cy="208" rx="22" ry="16" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8"/>
+  <ellipse cx="156" cy="208" rx="22" ry="16" fill="#5a4a8f" stroke="#2b1b12" stroke-width="8"/>
+</svg>

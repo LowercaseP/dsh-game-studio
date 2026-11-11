@@ -13,7 +13,7 @@ import { basename, extname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { readJson, sha256, StudioError, writeFileAtomic, writeJson } from './util.ts'
 
-export const TEMPLATES = ['collector', 'voxel'] as const
+export const TEMPLATES = ['collector', 'voxel', 'rune'] as const
 export const TEMPLATE_LICENSE = 'MIT (bundled template art, original to dsh-game-studio)'
 export type TemplateId = typeof TEMPLATES[number]
 
@@ -28,7 +28,7 @@ export interface SlotSpec {
 }
 
 /** Script libraries a game can ask for; each is inlined into the build because exported games cannot reach the network. */
-export const RUNTIMES = ['three'] as const
+export const RUNTIMES = ['three', 'rune'] as const
 export type RuntimeId = typeof RUNTIMES[number]
 
 export interface GameManifest {
